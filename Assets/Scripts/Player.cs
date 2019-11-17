@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
+    public Thing thing;
+
     public float speed;
 
     CircleCollider2D col;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
     {
         HandleMovementInput();
         HandleTime();
+        HandleSkillInput();
     }
 
     void HandleTime()
@@ -70,6 +73,14 @@ public class Player : MonoBehaviour
         {
             body.position = targetPos;
             Times.Instance.EnterBulletTime();
+        }
+    }
+
+    void HandleSkillInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            qSkill.OnKey();
         }
     }
 

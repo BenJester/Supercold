@@ -7,49 +7,21 @@ public enum Key
     None, Q, W, E, R, D, F
 }
 
-public class Skill : MonoBehaviour
+public abstract class Skill : ScriptableObject
 {
+    public string skillName = "New SKill";
+    public Sprite sprite;
+    public int cost;
+    public float castTime;
+
     public bool active;
     public Key key;
     protected Rigidbody2D rb;
     protected Thing thing;
 
-    public float castTime;
-
-    public virtual void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        thing = GetComponent<Thing>();
-        switch (key)
-        {
-            case Key.W:
-                Player.Instance.wSkill = this;
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    public virtual void OnKeyDown()
-    {
-
-    }
-
-    public virtual void OnKey()
-    {
-
-    }
-
-    public virtual void OnKeyUp()
-    {
-
-    }
-
-    public virtual void Do()
-    {
-        
-    }
+    public abstract void Init(GameObject obj);
+    public abstract void Do();
+    public abstract void OnKey();
 
     IEnumerator Cast()
     {
