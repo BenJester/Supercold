@@ -14,7 +14,7 @@ public class BulletBehavior : MonoBehaviour
 
     void Start()
     {
-        //body = GetComponent<Rigidbody2D>();
+
     }
 
     void Update()

@@ -10,8 +10,9 @@ public class BulletSkill : Skill
 
     public GameObject target;
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         Shoot(target);
     }
 

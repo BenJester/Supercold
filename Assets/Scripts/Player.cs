@@ -14,9 +14,6 @@ public class Player : MonoBehaviour
     public Vector2 targetPos;
     public float snapDistance;
 
-    public float bulletTimeScale = 0.1f;
-    float originalTimeScale;
-
     public Skill qSkill;
     public Skill wSkill;
     public Skill eSkill;
@@ -28,7 +25,6 @@ public class Player : MonoBehaviour
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
-        originalTimeScale = Time.timeScale;
     }
 
     void Start()
@@ -36,7 +32,7 @@ public class Player : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
         body = GetComponent<Rigidbody2D>();
         targetPos = transform.position;
-        Times.Instance.SetTimeScale(bulletTimeScale);
+        Times.Instance.EnterBulletTime();
     }
 
     void Update()
@@ -49,12 +45,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Times.Instance.SetTimeScale(bulletTimeScale);
+            Times.Instance.EnterBulletTime();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Times.Instance.SetTimeScale(originalTimeScale);
+            Times.Instance.ExitBulletTime();
         }
     }
 
@@ -73,6 +69,7 @@ public class Player : MonoBehaviour
         if (Vector2.Distance(body.position, targetPos) <= snapDistance)
         {
             body.position = targetPos;
+            Times.Instance.EnterBulletTime();
         }
     }
 
