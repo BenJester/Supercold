@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thing: {fileID: 0}
   speed: 500
+  canMove: 1
   targetPos: {x: 0, y: 0}
   snapDistance: 10
   handMaxNum: 6

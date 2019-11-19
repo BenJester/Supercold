@@ -29,10 +29,11 @@ public abstract class Skill : ScriptableObject
 
     IEnumerator CastTime()
     {
+        Player.Instance.canMove = false;
         OnCastFinish();
-        yield return new WaitForSeconds(castTime);
+        yield return new WaitForSeconds(castTime);       
         Do();
-        
+        Player.Instance.canMove = true;
     }
 
     public void OnCastFinish()

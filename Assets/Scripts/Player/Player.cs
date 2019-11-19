@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public float speed;
 
+    public bool canMove = true;
+    
     CircleCollider2D col;
     Rigidbody2D body;
 
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
 
     void GoToTargetPos()
     {
-        if (body.position == targetPos) return;
+        if (body.position == targetPos || !canMove) return;
 
         Vector2 dir = (targetPos - body.position).normalized;
         body.MovePosition(body.position + dir * speed * Time.fixedDeltaTime);
