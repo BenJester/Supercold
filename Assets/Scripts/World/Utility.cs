@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class Utility : MonoBehaviour
 {
-    public static Singleton Instance { get; private set; }
+    public static Utility Instance { get; private set; }
     void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
     }
+
 }

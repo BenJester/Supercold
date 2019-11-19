@@ -5,7 +5,7 @@ using UnityEngine;
 public class Thing : MonoBehaviour
 {
     public bool active;
-
+    public bool dead;
     public int maxHp;
     public int hp;
 
@@ -28,7 +28,7 @@ public class Thing : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (!active) return;
+        if (dead) return;
         hp -= damage;
         if (hp <= 0)
             Die();
@@ -36,8 +36,8 @@ public class Thing : MonoBehaviour
 
     public void Die()
     {
-        active = false;
-        col.enabled = false;
+        dead = true;
+        //col.enabled = false;
         sprite.enabled = false;
     }
 }

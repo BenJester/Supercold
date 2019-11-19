@@ -15,23 +15,39 @@ public abstract class Skill : ScriptableObject
     public float castTime;
 
     public bool active;
-    public Key key;
     protected Rigidbody2D rb;
     protected Thing thing;
 
-    public abstract void Init(GameObject obj);
     public abstract void Do();
     public abstract void OnKey();
 
-    IEnumerator Cast()
+    public void Cast()
     {
+        Utility.Instance.StartCoroutine(CastTime());
+    }
+
+    IEnumerator CastTime()
+    {
+        OnCastFinish();
         yield return new WaitForSeconds(castTime);
+        Do();
+        
+    }
+
+    public void OnCastFinish()
+    {
+        Player.Instance.DiscardCard(this);
     }
 
     // 检查是否可以执行
     public virtual bool Check()
     {
         return active;
+    }
+
+    public bool isCard()
+    {
+        return (skillName != "Empty" && skillName != "Reload");
     }
 
     public void Damage(Collider2D[] cols, int damage)

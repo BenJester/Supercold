@@ -47,9 +47,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acdf2f667b24504bba6d4799ad2ec22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thing: {fileID: 0}
   speed: 500
   targetPos: {x: 0, y: 0}
   snapDistance: 10
+  handMaxNum: 6
+  Deck:
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  Discard: []
+  Hand: []
+  Reload: {fileID: 11400000, guid: fdd957ddec4a29e48bc3bbf758f5ca2b, type: 2}
+  Empty: {fileID: 11400000, guid: 0cd684f2a58ce2740a2f1c1a5cca8ac7, type: 2}
+  maxMana: 0
+  mana: 0
 --- !u!50 &1745288096
 Rigidbody2D:
   serializedVersion: 4
@@ -148,11 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc17435c7fd10d489f93fe73697c460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
+  dead: 0
   maxHp: 3
   hp: 3
-  qSkill: {fileID: 0}
-  wSkill: {fileID: 0}
-  eSkill: {fileID: 0}
-  rSkill: {fileID: 0}
-  dSkill: {fileID: 0}
-  fSkill: {fileID: 0}

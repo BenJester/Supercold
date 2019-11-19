@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
-  m_Name: TestAutoattack
+  m_Script: {fileID: 11500000, guid: 36dbb2e7bb727bd4bb4cd5c2d33c124f, type: 3}
+  m_Name: Empty
   m_EditorClassIdentifier: 
-  skillName: Attack
+  skillName: Empty
   sprite: {fileID: 0}
   cost: 0
-  castTime: 1
-  active: 1
-  target: {fileID: 0}
-  travelSpeed: 500
-  bulletSprite: {fileID: 0}
-  damage: 1
+  castTime: 0
+  active: 0
+  gainPassive: {fileID: 0}

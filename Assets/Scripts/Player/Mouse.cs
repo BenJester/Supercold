@@ -28,7 +28,7 @@ public class Mouse : MonoBehaviour
     void SelectTarget(LockOnSkill skill, GameObject target)
     {
         skill.target = target;
-        skill.Do();
+        skill.Cast();
     }
 
     GameObject MouseSelectGameObj()
