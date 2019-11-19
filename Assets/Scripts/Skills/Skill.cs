@@ -10,6 +10,7 @@ public enum Key
 public abstract class Skill : ScriptableObject
 {
     public string skillName = "New SKill";
+    public string detail = "This is a card";
     public Sprite sprite;
     public int cost;
     public float castTime;

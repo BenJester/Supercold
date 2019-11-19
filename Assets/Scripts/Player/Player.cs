@@ -49,8 +49,7 @@ public class Player : MonoBehaviour
     {
         HandleMovementInput();
         HandleTime();
-        HandleSkillInput();
-        
+        HandleSkillInput();       
     }
 
     void SetHandToEmpty()
