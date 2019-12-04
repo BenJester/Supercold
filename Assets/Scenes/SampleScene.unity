@@ -809,6 +809,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: buffList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: buffList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 710bb8f4effcfdf469887d2c5e4577e7,
+        type: 2}
+    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
       value: 1
@@ -936,8 +952,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   dead: 0
-  maxHp: 3
+  maxHp: 4
   hp: 0
+  speed: 0
+  targetPos: {x: 0, y: 0}
+  buffList: []
+  snapDistance: 10
+  canMove: 0
+  particle: {fileID: 0}
 --- !u!1001 &8970716843531991843
 PrefabInstance:
   m_ObjectHideFlags: 0

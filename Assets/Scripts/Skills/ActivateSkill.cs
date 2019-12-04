@@ -12,4 +12,9 @@ public abstract class ActivateSkill : Skill
     {
         Cast();
     }
+
+    public override Action CreateAction()
+    {
+        return new Action(owner, this);
+    }
 }

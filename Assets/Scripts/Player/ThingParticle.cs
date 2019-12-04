@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerParticle : MonoBehaviour
+public class ThingParticle : MonoBehaviour
 {
-    public static PlayerParticle Instance { get; private set; }
+    //public static PlayerParticle Instance { get; private set; }
 
     public ParticleSystem castParticle;
 
     void Awake()
     {
-        if (Instance == null) { Instance = this; }
-        else { Destroy(gameObject); }
-
+        //if (Instance == null) { Instance = this; }
+        //else { Destroy(gameObject); }
+        
         Init(castParticle);
     }
 

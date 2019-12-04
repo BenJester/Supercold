@@ -10,4 +10,9 @@ public abstract class LockOnSkill : Skill
     {
         Mouse.Instance.LockOnMouse(this);
     }
+
+    public override Action CreateAction()
+    {
+        return new Action(owner, this, target);
+    }
 }

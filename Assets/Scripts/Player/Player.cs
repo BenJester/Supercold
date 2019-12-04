@@ -7,16 +7,9 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
 
     public Thing thing;
-
-    public float speed;
-
-    public bool canMove = true;
     
     CircleCollider2D col;
     Rigidbody2D body;
-
-    public Vector2 targetPos;
-    public float snapDistance;
 
     public int handMaxNum = 6;
     public List<Skill> Deck;
@@ -29,7 +22,7 @@ public class Player : MonoBehaviour
     public int maxMana;
     public int mana;
 
-    public delegate void PlayCardDelegate();
+    public delegate void PlayCardDelegate(Action action);
     public event PlayCardDelegate OnPlayCard;
 
     void Awake()
@@ -42,10 +35,9 @@ public class Player : MonoBehaviour
     {
         col = GetComponent<CircleCollider2D>();
         body = GetComponent<Rigidbody2D>();
-        targetPos = transform.position;
         Times.Instance.EnterBulletTime();
         thing = GetComponent<Thing>();
-
+        
         Discard = new List<Skill>();
         InitHand();
     }
@@ -66,15 +58,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void BroadcastPlayCard()
+    public void BroadcastPlayCard(Action action)
     {
-        OnPlayCard();
+        if (OnPlayCard != null)
+            OnPlayCard(action);
     }
 
     void InitHand()
     {
         SetHandToEmpty();
         DrawCard(handMaxNum);
+        Empty.owner = thing;
     }
 
     void HandleTime()
@@ -92,21 +86,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        GoToTargetPos();
-    }
-
-    void GoToTargetPos()
-    {
-        if (body.position == targetPos || !canMove) return;
-
-        Vector2 dir = (targetPos - body.position).normalized;
-        body.MovePosition(body.position + dir * thing.speed * Time.fixedDeltaTime);
-
-        if (Vector2.Distance(body.position, targetPos) <= snapDistance)
-        {
-            body.position = targetPos;
-            Times.Instance.EnterBulletTime();
-        }
+        
     }
 
     void HandleSkillInput()
@@ -145,7 +125,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            thing.targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -195,6 +175,7 @@ public class Player : MonoBehaviour
             if (!Hand[i].isCard())
             {
                 Hand[i] = skill;
+                skill.owner = thing;
                 return true;
             }
                 

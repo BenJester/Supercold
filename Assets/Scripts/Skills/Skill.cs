@@ -19,34 +19,40 @@ public abstract class Skill : ScriptableObject
 
     public bool active;
     protected Rigidbody2D rb;
-    protected Thing thing;
+    public Thing owner;
 
     public abstract void Do();
     public abstract void OnKey();
+    public abstract Action CreateAction();
 
     public void Cast()
     {
         if (isCard())
-            Player.Instance.BroadcastPlayCard();
+        {
+            owner.lastCastAction = CreateAction();          
+        }
+            
         Utility.Instance.StartCoroutine(CastTime());
     }
 
     IEnumerator CastTime()
     {
-        PlayerParticle.Instance.PlayCastParticle();
-        Player.Instance.canMove = false;
+        owner.particle.PlayCastParticle();
+        owner.canMove = false;
         OnCastFinish();
         yield return new WaitForSeconds(preCastTime);       
         Do();
-        PlayerParticle.Instance.PauseCastParticle();
+        owner.particle.PauseCastParticle();
         yield return new WaitForSeconds(postCastTime);
-        Player.Instance.canMove = true;
+        owner.canMove = true;
+        Player.Instance.BroadcastPlayCard(owner.lastCastAction);
     }
 
     public void OnCastFinish()
     {
         Player.Instance.DiscardCard(this);
     }
+
 
     // 检查是否可以执行
     public virtual bool Check()

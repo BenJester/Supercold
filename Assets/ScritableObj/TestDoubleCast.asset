@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c0874658f1b104b8530f5cf9f65081, type: 3}
+  m_Name: TestDoubleCast
+  m_EditorClassIdentifier: 
+  buffName: Double Cast
+  detail: This is a buff
+  duration: -1
+  owner: {fileID: 0}
+  x: 3
+  gainBuff: {fileID: 0}
+  doubleCastDelay: 0.3

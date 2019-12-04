@@ -7,18 +7,25 @@ public abstract class EveryXSkillBuff : Buff
     public int x;
     int count = 0;
     public Buff gainBuff;
+    public Action lastCastAction;
+    public Action DoAction;
 
-    void Start()
+    public override void Init()
     {
         Player.Instance.OnPlayCard += UpdateCount;
     }
 
-    void UpdateCount()
+    void UpdateCount(Action action)
     {
+        lastCastAction = action;
         count += 1;
         if (count == x)
         {
             count = 0;
+            if (gainBuff)
+                owner.AddBuff(gainBuff);
+            if (DoAction != null)
+                DoAction.Do();
             Do();
         }
     }
