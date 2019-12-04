@@ -952,7 +952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   dead: 0
-  maxHp: 4
+  maxHp: 100
   hp: 0
   speed: 0
   targetPos: {x: 0, y: 0}
