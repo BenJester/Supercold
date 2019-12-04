@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
         SetHandToEmpty();
         DrawCard(handMaxNum);
         Empty.owner = thing;
+        Reload.owner = thing;
     }
 
     void HandleTime()

@@ -37,7 +37,9 @@ public abstract class Skill : ScriptableObject
 
     IEnumerator CastTime()
     {
-        owner.particle.PlayCastParticle();
+        if (preCastTime > 0f)
+            owner.particle.PlayCastParticle();
+
         owner.canMove = false;
         OnCastFinish();
         yield return new WaitForSeconds(preCastTime);       
@@ -45,7 +47,9 @@ public abstract class Skill : ScriptableObject
         owner.particle.PauseCastParticle();
         yield return new WaitForSeconds(postCastTime);
         owner.canMove = true;
-        Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+
+        if (isCard())
+            Player.Instance.BroadcastPlayCard(owner.lastCastAction);
     }
 
     public void OnCastFinish()
