@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Key
+public enum SkillType
 {
-    None, Q, W, E, R, D, F
+    Card, NotCard
 }
 
 public abstract class Skill : ScriptableObject
 {
+    public SkillType skillType;
     public string skillName = "New SKill";
     public string detail = "This is a card";
     public Sprite sprite;
     public int cost;
-    public float castTime;
+    public float preCastTime;
+    public float postCastTime;
 
     public bool active;
     protected Rigidbody2D rb;
@@ -24,15 +26,20 @@ public abstract class Skill : ScriptableObject
 
     public void Cast()
     {
+        if (isCard())
+            Player.Instance.BroadcastPlayCard();
         Utility.Instance.StartCoroutine(CastTime());
     }
 
     IEnumerator CastTime()
     {
+        PlayerParticle.Instance.PlayCastParticle();
         Player.Instance.canMove = false;
         OnCastFinish();
-        yield return new WaitForSeconds(castTime);       
+        yield return new WaitForSeconds(preCastTime);       
         Do();
+        PlayerParticle.Instance.PauseCastParticle();
+        yield return new WaitForSeconds(postCastTime);
         Player.Instance.canMove = true;
     }
 
@@ -49,7 +56,7 @@ public abstract class Skill : ScriptableObject
 
     public bool isCard()
     {
-        return (skillName != "Empty" && skillName != "Reload");
+        return skillType != SkillType.NotCard;
     }
 
     public void Damage(Collider2D[] cols, int damage)

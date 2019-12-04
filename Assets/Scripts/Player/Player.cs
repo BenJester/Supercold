@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     public int maxMana;
     public int mana;
 
+    public delegate void PlayCardDelegate();
+    public event PlayCardDelegate OnPlayCard;
+
     void Awake()
     {
         if (Instance == null) { Instance = this; }
@@ -41,10 +44,10 @@ public class Player : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         targetPos = transform.position;
         Times.Instance.EnterBulletTime();
+        thing = GetComponent<Thing>();
 
         Discard = new List<Skill>();
         InitHand();
-        
     }
 
     void Update()
@@ -61,6 +64,11 @@ public class Player : MonoBehaviour
         {
             Hand.Add(Empty);
         }
+    }
+
+    public void BroadcastPlayCard()
+    {
+        OnPlayCard();
     }
 
     void InitHand()
@@ -92,7 +100,7 @@ public class Player : MonoBehaviour
         if (body.position == targetPos || !canMove) return;
 
         Vector2 dir = (targetPos - body.position).normalized;
-        body.MovePosition(body.position + dir * speed * Time.fixedDeltaTime);
+        body.MovePosition(body.position + dir * thing.speed * Time.fixedDeltaTime);
 
         if (Vector2.Distance(body.position, targetPos) <= snapDistance)
         {

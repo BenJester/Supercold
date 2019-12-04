@@ -8,6 +8,9 @@ public class Thing : MonoBehaviour
     public bool dead;
     public int maxHp;
     public int hp;
+    public float speed;
+
+    public List<Buff> buffList;
 
     CircleCollider2D col;
     Rigidbody2D body;
@@ -39,5 +42,12 @@ public class Thing : MonoBehaviour
         dead = true;
         //col.enabled = false;
         sprite.enabled = false;
+    }
+
+    public void AddBuff(Buff buff)
+    {
+        buffList.Add(buff);
+        buff.Do();
+        buff.owner = this;
     }
 }

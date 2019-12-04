@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Skills/AcivateSkill")]
 public abstract class ActivateSkill : Skill
 {
-    public Passive gainPassive;
+    public Buff gainBuff;
 
     public override void OnKey()
     {

@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
   m_Name: TestAutoattack
   m_EditorClassIdentifier: 
-  skillName: Attack
+  skillType: 0
+  skillName: "\u653B\u51FB"
+  detail: "\u5411\u76EE\u6807\u53D1\u5C04\u4E00\u679A\u5B50\u5F39\uFF0C\u9020\u6210
+    1 \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cost: 0
-  castTime: 1
+  preCastTime: 0.2
+  postCastTime: 0.05
   active: 1
   target: {fileID: 0}
   travelSpeed: 500

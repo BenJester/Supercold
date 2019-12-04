@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c326a718d5b980448b3c3f9636dcaa6, type: 3}
   m_Name: DefaultReload
   m_EditorClassIdentifier: 
-  skillName: Reload
+  skillType: 1
+  skillName: "\u88C5\u586B"
+  detail: "\u91CD\u65B0\u62BD\u724C\uFF0C\u56DE\u590D\u6C34\u6676"
   sprite: {fileID: 0}
   cost: 0
-  castTime: 0
+  preCastTime: 1.8
+  postCastTime: 0.2
   active: 0
   gainPassive: {fileID: 0}
