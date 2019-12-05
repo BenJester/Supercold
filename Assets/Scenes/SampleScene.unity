@@ -285,12 +285,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!198 &1431430253 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12,
-    type: 3}
-  m_PrefabInstance: {fileID: 5159956618487435644}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570308787
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,25 +371,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4401489264775022034}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2077673150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5159956619158121186, guid: 97e292536cbad9844988fd7ab0b8ee12,
-    type: 3}
-  m_PrefabInstance: {fileID: 5159956618487435644}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2077673151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077673150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf52f3a1d03b42b4da4ab50e65f8624f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  castParticle: {fileID: 1431430253}
 --- !u!1001 &4401489264775022034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -809,58 +784,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
-        type: 3}
-      propertyPath: buffList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
-        type: 3}
-      propertyPath: buffList.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 710bb8f4effcfdf469887d2c5e4577e7,
-        type: 2}
-    - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
-        type: 3}
-      propertyPath: canMove
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime1
-      value: 15806
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430253, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: ColorModule.gradient.maxGradient.atime2
-      value: 53970
-      objectReference: {fileID: 0}
-    - target: {fileID: 1431430252, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97e292536cbad9844988fd7ab0b8ee12, type: 3}
 --- !u!1001 &5289204311261301092
@@ -930,6 +853,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7764294623874025224, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198ac884f336342479b750bde4596677, type: 3}
 --- !u!1 &5289204311261301093 stripped
@@ -938,7 +871,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5289204311261301092}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5289204311261301094
+--- !u!114 &5289204311261301099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,19 +880,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5289204311261301093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc17435c7fd10d489f93fe73697c460, type: 3}
+  m_Script: {fileID: 11500000, guid: f8863a9a91ab1374483c7bd7f3410353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
-  dead: 0
-  maxHp: 100
-  hp: 0
-  speed: 0
-  targetPos: {x: 0, y: 0}
-  buffList: []
-  snapDistance: 10
-  canMove: 0
-  particle: {fileID: 0}
+  skillList:
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: 4bfc01ded0bccf14e8dd75fdbc2adbf5, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  attackInteval: 2
 --- !u!1001 &8970716843531991843
 PrefabInstance:
   m_ObjectHideFlags: 0

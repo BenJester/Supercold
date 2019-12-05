@@ -1831,8 +1831,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 0.41221237, b: 1, a: 0}
-        key1: {r: 0.504717, g: 0.719412, b: 1, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1848,8 +1848,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 40670
-        atime2: 49344
+        atime1: 15806
+        atime2: 53970
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -5238,7 +5238,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5823,6 +5823,7 @@ GameObject:
   - component: {fileID: 1745288097}
   - component: {fileID: 1745288098}
   - component: {fileID: 1865957218551925941}
+  - component: {fileID: 2077673151}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5858,10 +5859,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thing: {fileID: 0}
-  speed: 500
-  canMove: 1
-  targetPos: {x: 0, y: 0}
-  snapDistance: 10
   handMaxNum: 6
   Deck:
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
@@ -5872,10 +5869,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
+  - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
+  - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
+  - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
   Discard: []
   Hand: []
   Reload: {fileID: 11400000, guid: fdd957ddec4a29e48bc3bbf758f5ca2b, type: 2}
@@ -5982,7 +5979,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   dead: 0
-  maxHp: 3
+  maxHp: 10
   hp: 3
+  shield: 0
   speed: 400
-  buffList: []
+  targetPos: {x: 0, y: 0}
+  buffList:
+  - {fileID: 11400000, guid: 710bb8f4effcfdf469887d2c5e4577e7, type: 2}
+  snapDistance: 10
+  canMove: 1
+  particle: {fileID: 0}
+--- !u!114 &2077673151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159956619158121186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf52f3a1d03b42b4da4ab50e65f8624f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castParticle: {fileID: 1431430253}

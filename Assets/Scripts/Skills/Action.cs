@@ -59,4 +59,23 @@ public class Action
                 break;
         }
     }
+
+    public void CastTimeDo()
+    {
+        switch (actionType)
+        {
+            case ActionType.Movement:
+                owner.targetPos = targetPos;
+                break;
+            case ActionType.ActivateSkill:
+                Utility.Instance.StartCoroutine(activateSkill.CastTime());
+                break;
+            case ActionType.LockOnSkill:
+                lockOnSkill.target = target;
+                Utility.Instance.StartCoroutine(lockOnSkill.CastTime());
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 瞬发技能
-[CreateAssetMenu(menuName = "Skills/AcivateSkill")]
 public abstract class ActivateSkill : Skill
 {
     public Buff gainBuff;

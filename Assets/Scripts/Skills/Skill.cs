@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SkillType
 {
-    Card, NotCard
+    OnLock, Activate, NotCard
 }
 
 public abstract class Skill : ScriptableObject
@@ -27,21 +27,31 @@ public abstract class Skill : ScriptableObject
 
     public void Cast()
     {
+
+        Action action = CreateAction();
+        OnCastFinish();
+        if (!owner.canMove)
+        {
+            owner.buffer.Enqueue(action);
+
+            return;
+        }
+        
         if (isCard())
         {
-            owner.lastCastAction = CreateAction();          
+            owner.lastCastAction = action;          
         }
             
         Utility.Instance.StartCoroutine(CastTime());
     }
 
-    IEnumerator CastTime()
+    public IEnumerator CastTime()
     {
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
 
         owner.canMove = false;
-        OnCastFinish();
+        
         yield return new WaitForSeconds(preCastTime);       
         Do();
         owner.particle.PauseCastParticle();
@@ -50,6 +60,8 @@ public abstract class Skill : ScriptableObject
 
         if (isCard())
             Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+
+        owner.NextInBuffer();
     }
 
     public void OnCastFinish()

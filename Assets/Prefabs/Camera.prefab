@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 344936451155081609, guid: ce11aae75b781784684e3d9aeee1183c, type: 3}
+  HPCanvas: {fileID: 813372922347828068, guid: ade678417f7da3546b28e58e2064bc93, type: 3}
 --- !u!114 &8970716843531991849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dadc3cbdf6c054e965315ce2d88aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTimeScale: 0.1
+  bulletTimeScale: 0.055
   targetTimeScale: 0
   timeScaleLerpRate: 0.07
   targetDeltaTime: 0

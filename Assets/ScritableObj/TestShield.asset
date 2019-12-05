@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c326a718d5b980448b3c3f9636dcaa6, type: 3}
-  m_Name: DefaultReload
+  m_Script: {fileID: 11500000, guid: d54266c43d24e654581984f6520a923e, type: 3}
+  m_Name: TestShield
   m_EditorClassIdentifier: 
-  skillType: 2
-  skillName: "\u88C5\u586B"
-  detail: "\u91CD\u65B0\u62BD\u724C\uFF0C\u56DE\u590D\u6C34\u6676"
+  skillType: 1
+  skillName: "\u62A4\u76FE"
+  detail: "\u83B7\u5F97 1 \u70B9\u62A4\u76FE\uFF0C\u76F4\u5230\u91CD\u65B0\u88C5\u8F7D"
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 1.8
-  postCastTime: 0.2
+  preCastTime: 0.25
+  postCastTime: 0
   active: 0
   owner: {fileID: 0}
   gainBuff: {fileID: 0}
+  shieldAmount: 1

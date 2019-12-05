@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Thing : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Thing : MonoBehaviour
     public bool dead;
     public int maxHp;
     public int hp;
+    public int shield;
+
     public float speed;
     public Vector2 targetPos;
     public List<Buff> buffList;
@@ -22,6 +25,9 @@ public class Thing : MonoBehaviour
     SpriteRenderer sprite;
 
     public Action lastCastAction;
+    public Queue<Action> buffer;
+
+    Text hpText;
 
     void Start()
     {
@@ -31,8 +37,9 @@ public class Thing : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         targetPos = transform.position;
         particle = GetComponent<ThingParticle>();
-
+        buffer = new Queue<Action>();
         InitBuffs();
+        InitUI();
     }
 
     void InitBuffs()
@@ -40,6 +47,25 @@ public class Thing : MonoBehaviour
         foreach (var buff in buffList)
         {
             buff.Init();
+        }
+    }
+
+    void InitUI()
+    {
+        GameObject HPCanvas = Instantiate(Prefabs.Instance.HPCanvas, transform);
+        HPCanvas.GetComponent<HPText>().thing = this;
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void NextInBuffer()
+    {
+        if (buffer.Count > 0 && canMove)
+        {
+            buffer.Dequeue().CastTimeDo();
         }
     }
 
@@ -51,6 +77,13 @@ public class Thing : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (dead) return;
+        if (shield > 0)
+        {
+            int dmgOnShield = Mathf.Min(shield, damage);
+            shield -= dmgOnShield;
+            damage -= dmgOnShield;
+        }
+            
         hp -= damage;
         if (hp <= 0)
             Die();
@@ -75,6 +108,7 @@ public class Thing : MonoBehaviour
     {
         if (body.position == targetPos || !canMove) return;
 
+        //buffer = new Queue<Action>();
         Vector2 dir = (targetPos - body.position).normalized;
         body.MovePosition(body.position + dir * speed * Time.fixedDeltaTime);
 

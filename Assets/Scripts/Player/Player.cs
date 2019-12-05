@@ -39,14 +39,18 @@ public class Player : MonoBehaviour
         thing = GetComponent<Thing>();
         
         Discard = new List<Skill>();
+        Utility.Instance.InitDeck(ref Deck, thing);
         InitHand();
     }
+
+    
 
     void Update()
     {
         HandleMovementInput();
         HandleTime();
-        HandleSkillInput();       
+        HandleSkillInput();
+        Debug.Log(thing.buffer.Count);
     }
 
     void SetHandToEmpty()
@@ -66,23 +70,25 @@ public class Player : MonoBehaviour
 
     void InitHand()
     {
-        SetHandToEmpty();
-        DrawCard(handMaxNum);
         Empty.owner = thing;
         Reload.owner = thing;
+        SetHandToEmpty();
+        DrawCard(handMaxNum);
     }
 
     void HandleTime()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             Times.Instance.EnterBulletTime();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (!Input.GetMouseButton(1))
         {
-            Times.Instance.ExitBulletTime();
+            Times.Instance.EnterBulletTime();
         }
+        else
+            Times.Instance.ExitBulletTime();
     }
 
     void FixedUpdate()
@@ -124,7 +130,7 @@ public class Player : MonoBehaviour
 
     void HandleMovementInput()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             thing.targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }

@@ -21,6 +21,7 @@ MonoBehaviour:
   preCastTime: 0.2
   postCastTime: 0.05
   active: 1
+  owner: {fileID: 0}
   target: {fileID: 0}
   travelSpeed: 500
   bulletSprite: {fileID: 0}

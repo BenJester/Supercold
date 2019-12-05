@@ -9,16 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c326a718d5b980448b3c3f9636dcaa6, type: 3}
-  m_Name: DefaultReload
+  m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
+  m_Name: EnemyAttack
   m_EditorClassIdentifier: 
-  skillType: 2
-  skillName: "\u88C5\u586B"
-  detail: "\u91CD\u65B0\u62BD\u724C\uFF0C\u56DE\u590D\u6C34\u6676"
+  skillType: 0
+  skillName: New SKill
+  detail: This is a card
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 1.8
-  postCastTime: 0.2
+  preCastTime: 0
+  postCastTime: 0
   active: 0
   owner: {fileID: 0}
-  gainBuff: {fileID: 0}
+  target: {fileID: 0}
+  travelSpeed: 0
+  bulletSprite: {fileID: 0}
+  damage: 0

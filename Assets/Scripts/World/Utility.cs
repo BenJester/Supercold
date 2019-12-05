@@ -11,4 +11,16 @@ public class Utility : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
+    public void InitDeck(ref List<Skill> deck, Thing owner)
+    {
+        List<Skill> res = new List<Skill>();
+        foreach (var skill in deck)
+        {
+            Skill newSkill = Instantiate(skill);
+            newSkill.owner = owner;
+            res.Add(newSkill);
+
+        }
+        deck = res;
+    }
 }

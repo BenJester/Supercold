@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 选择目标技能
-[CreateAssetMenu (menuName = "Skills/BulletSkill")]
+[CreateAssetMenu (menuName = "Skills/ActivateSkill/BulletSkill")]
 public class BulletSkill : LockOnSkill
 {
     public float travelSpeed;
@@ -18,11 +18,11 @@ public class BulletSkill : LockOnSkill
 
     void Shoot(GameObject target)
     {
-        GameObject bullet = Instantiate(Prefabs.Instance.bullet, Player.Instance.transform.position, Quaternion.identity, null);
+        GameObject bullet = Instantiate(Prefabs.Instance.bullet, owner.transform.position, Quaternion.identity, null);
         BulletBehavior bulletBehavior =  bullet.GetComponent<BulletBehavior>();
         bulletBehavior.travelSpeed = travelSpeed;
         bulletBehavior.damage = damage;
         bulletBehavior.target = target;
-        bulletBehavior.owner = Player.Instance.thing;
+        bulletBehavior.owner = owner;
     }
 }

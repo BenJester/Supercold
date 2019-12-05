@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36dbb2e7bb727bd4bb4cd5c2d33c124f, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
-  skillType: 1
+  skillType: 2
   skillName: "\u7A7A\u4F4D"
   detail: 
   sprite: {fileID: 0}
   cost: 0
-  castTime: 0
+  preCastTime: 0
+  postCastTime: 0
   active: 0
-  gainPassive: {fileID: 0}
+  owner: {fileID: 0}
+  gainBuff: {fileID: 0}

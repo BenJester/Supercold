@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum MouseMode
 {
-    Normal, LockOn
+    Normal, LockOn, Direction
 }
 
 public class Mouse : MonoBehaviour
