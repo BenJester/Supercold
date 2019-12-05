@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionSkill : MonoBehaviour
+public abstract class DirectionSkill : Skill
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector2 targetPos;
+
+    public override void OnKey()
     {
-        
+        Mouse.Instance.SelectDirection(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override Action CreateAction()
     {
-        
+        return new Action(owner, this, targetPos);
     }
 }

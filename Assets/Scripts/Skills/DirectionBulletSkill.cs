@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 选择目标技能
-[CreateAssetMenu (menuName = "Skills/LockOnSkill/BulletSkill")]
-public class BulletSkill : LockOnSkill
+[CreateAssetMenu(menuName = "Skills/DirectionSkill/DirectionBulletSkill")]
+public class DirectionBulletSkill : DirectionSkill
 {
     public float travelSpeed;
     public Sprite bulletSprite;
@@ -12,17 +11,17 @@ public class BulletSkill : LockOnSkill
 
     public override void Do()
     {
-        if (target)
-            Shoot(target);
+        if (targetPos != null)
+            Shoot(targetPos);
     }
 
-    void Shoot(GameObject target)
+    void Shoot(Vector2 pos)
     {
         GameObject bullet = Instantiate(Prefabs.Instance.bullet, owner.transform.position, Quaternion.identity, null);
-        BulletBehavior bulletBehavior =  bullet.GetComponent<BulletBehavior>();
+        BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
         bulletBehavior.travelSpeed = travelSpeed;
         bulletBehavior.damage = damage;
-        bulletBehavior.target = target;
+        bulletBehavior.dir = pos;
         bulletBehavior.owner = owner;
     }
 }

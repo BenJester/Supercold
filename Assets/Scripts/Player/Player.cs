@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
         HandleMovementInput();
         HandleTime();
         HandleSkillInput();
-        Debug.Log(thing.buffer.Count);
     }
 
     void SetHandToEmpty()

@@ -9,7 +9,8 @@ public class BulletBehavior : MonoBehaviour
     [HideInInspector] public float travelSpeed;
     [HideInInspector] public int damage;
     public GameObject target;
-
+    public Vector2 dir;
+    Vector3 relativeDir;
     Rigidbody2D body;
 
     void Start()
@@ -24,15 +25,30 @@ public class BulletBehavior : MonoBehaviour
 
     void Chase()
     {
-        if (!active || !target) return;
-        Vector2 dir = (target.transform.position - transform.position).normalized;
-        transform.Translate(dir * travelSpeed * Time.fixedDeltaTime);
+        if (!active) return;
+        if (relativeDir == Vector3.zero)
+            relativeDir = ((Vector3)dir - transform.position).normalized;
+        if (target)
+        {
+            Vector2 targetDir = (target.transform.position - transform.position).normalized;
+            transform.Translate(targetDir * travelSpeed * Time.fixedDeltaTime);
+        }
+        else if (dir != null)
+        {
+            transform.Translate(relativeDir * travelSpeed * Time.fixedDeltaTime);
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         Thing colThing = col.GetComponent<Thing>();
-        if (colThing == target.GetComponent<Thing>())
+        if (colThing == owner) return;
+        if (target && colThing == target.GetComponent<Thing>())
+        {
+            OnHit(colThing);
+        }
+        else if (dir != null && colThing)
         {
             OnHit(colThing);
         }

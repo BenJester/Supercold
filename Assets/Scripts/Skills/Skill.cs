@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SkillType
 {
-    OnLock, Activate, NotCard
+    OnLock, Activate, NotCard, Direction
 }
 
 public abstract class Skill : ScriptableObject

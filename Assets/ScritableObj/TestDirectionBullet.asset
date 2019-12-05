@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f22e162fbbbd4f4bb504efe5ceabf26, type: 3}
+  m_Name: TestDirectionBullet
+  m_EditorClassIdentifier: 
+  skillType: 3
+  skillName: "\u79D8\u672F\u5C04\u51FB"
+  detail: "\u671D\u76EE\u6807\u65B9\u5411\u5C04\u51FA\u4E00\u53D1\u5B50\u5F39\uFF0C\u5BF9\u7B2C\u4E00\u4E2A\u63A5\u89E6\u7684\u76EE\u6807\u9020\u6210
+    2 \u70B9\u4F24\u5BB3"
+  sprite: {fileID: 0}
+  cost: 0
+  preCastTime: 0.25
+  postCastTime: 0.1
+  active: 0
+  owner: {fileID: 0}
+  targetPos: {x: 0, y: 0}
+  travelSpeed: 700
+  bulletSprite: {fileID: 0}
+  damage: 2

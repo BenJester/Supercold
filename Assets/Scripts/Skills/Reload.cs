@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Skills/AcivateSkill/Reload")]
+[CreateAssetMenu(menuName = "Skills/ActivateSkill/Reload")]
 public class Reload : ActivateSkill
 {
     public override void Do()

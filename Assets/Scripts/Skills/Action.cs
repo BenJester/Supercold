@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum ActionType
 {
-    Movement, ActivateSkill, LockOnSkill
+    Movement, ActivateSkill, LockOnSkill, DirectionSkill
 }
 
 public class Action
@@ -15,6 +15,7 @@ public class Action
     public GameObject target;
     public ActivateSkill activateSkill;
     public LockOnSkill lockOnSkill;
+    public DirectionSkill directionSkill;
 
     // movement
     public Action(Thing owner, Vector2 targetPos)
@@ -32,13 +33,22 @@ public class Action
         activateSkill = skill;
     }
 
-    // activate skill
+    // lock on skill
     public Action(Thing owner, LockOnSkill skill, GameObject target)
     {
         actionType = ActionType.LockOnSkill;
         this.owner = owner;
         lockOnSkill = skill;
         this.target = target;
+    }
+
+    // direction skill
+    public Action(Thing owner, DirectionSkill skill, Vector2 pos)
+    {
+        actionType = ActionType.DirectionSkill;
+        this.owner = owner;
+        directionSkill = skill;
+        targetPos = pos;
     }
 
     public void Do()
@@ -54,6 +64,10 @@ public class Action
             case ActionType.LockOnSkill:
                 lockOnSkill.target = target;
                 lockOnSkill.Do();
+                break;
+            case ActionType.DirectionSkill:
+                directionSkill.targetPos = targetPos;
+                directionSkill.Do();
                 break;
             default:
                 break;
@@ -73,6 +87,10 @@ public class Action
             case ActionType.LockOnSkill:
                 lockOnSkill.target = target;
                 Utility.Instance.StartCoroutine(lockOnSkill.CastTime());
+                break;
+            case ActionType.DirectionSkill:
+                directionSkill.targetPos = targetPos;
+                Utility.Instance.StartCoroutine(directionSkill.CastTime());
                 break;
             default:
                 break;
