@@ -13,6 +13,7 @@ public class UIHand : MonoBehaviour
         {
             skillList[i].skillName.text = Player.Instance.Hand[i].skillName;
             skillList[i].detail.text = Player.Instance.Hand[i].detail;
+            skillList[i].CastTime.text = Player.Instance.Hand[i].preCastTime + Player.Instance.Hand[i].postCastTime + "s";
         }
     }
 }

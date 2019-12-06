@@ -7,6 +7,7 @@ public class UISkill : MonoBehaviour
 {
     public Text skillName;
     public Text detail;
+    public Text CastTime;
 
     public void ProcessString()
     {
