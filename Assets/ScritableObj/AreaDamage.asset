@@ -9,21 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
-  m_Name: EnemyStrongAttack
+  m_Script: {fileID: 11500000, guid: dbfa7cc8bd91695418a67ba93f3bf4b8, type: 3}
+  m_Name: AreaDamage
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillName: New SKill
-  detail: This is a card
+  skillType: 3
+  skillName: "\u8303\u56F4\u653B\u51FB"
+  detail: "\u5BF9\u8303\u56F4\u5185\u654C\u4EBA\u9020\u6210 1 \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 0
+  preCastTime: 0.25
   postCastTime: 0
   active: 0
   owner: {fileID: 0}
-  target: {fileID: 0}
-  travelSpeed: 180
+  targetPos: {x: 0, y: 0}
+  radius: 250
+  delay: 0.9
   bulletSprite: {fileID: 0}
   damage: 1
-  num: 1
-  interval: 1

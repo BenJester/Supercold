@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 0
   skillName: "\u5F3A\u529B\u653B\u51FB"
-  detail: "\u5411\u76EE\u6807\u53D1\u5C04\u4E00\u679A\u5B50\u5F39\uFF0C\u9020\u6210
-    3 \u70B9\u4F24\u5BB3"
+  detail: "\u5411\u76EE\u6807\u53D1\u5C04 2 \u679A\u5B50\u5F39\uFF0C\u6BCF\u679A\u9020\u6210
+    1 \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cost: 0
   preCastTime: 0.8
@@ -25,4 +25,6 @@ MonoBehaviour:
   target: {fileID: 0}
   travelSpeed: 1000
   bulletSprite: {fileID: 0}
-  damage: 3
+  damage: 1
+  num: 2
+  interval: 0.1

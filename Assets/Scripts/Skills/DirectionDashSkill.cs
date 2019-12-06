@@ -29,6 +29,6 @@ public class DirectionDashSkill : DirectionSkill
             timer += Time.fixedDeltaTime;
         }
         owner.canMove = true;
-        //owner.targetPos = owner.transform.position;
+        owner.targetPos = targetPos;
     }
 }

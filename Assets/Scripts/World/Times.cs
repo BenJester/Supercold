@@ -7,12 +7,14 @@ public class Times : MonoBehaviour
     public static Times Instance { get; private set; }
 
     public float bulletTimeScale = 0.1f;
+    public float timeScaleEnterLerpRate = 0.07f;
+    public float timeScaleExitLerpRate = 0.02f;
 
-    public float targetTimeScale;
-    public float timeScaleLerpRate = 0.07f;
-    public float targetDeltaTime;
-    public float startDeltaTime;
-    public float startTimeScale;
+    float targetTimeScale;
+    float targetDeltaTime;
+
+    float startDeltaTime;
+    float startTimeScale;
 
     public float multiplier;
 
@@ -28,8 +30,8 @@ public class Times : MonoBehaviour
     {
         if (!Player.Instance.thing.canCast && !Player.Instance.thing.canMove)
             ExitBulletTime();
-        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, timeScaleLerpRate);
-        Time.fixedDeltaTime = Mathf.Lerp(Time.fixedDeltaTime, targetDeltaTime, timeScaleLerpRate * startDeltaTime);
+        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.timeScale > targetTimeScale ? timeScaleEnterLerpRate : timeScaleExitLerpRate);
+        Time.fixedDeltaTime = Mathf.Lerp(Time.fixedDeltaTime, targetDeltaTime, (Time.timeScale > targetTimeScale ? timeScaleEnterLerpRate : timeScaleExitLerpRate));
     }
 
     public void SetTimeScale(float timeScale)

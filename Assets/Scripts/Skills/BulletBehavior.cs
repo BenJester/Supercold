@@ -124,7 +124,7 @@ public class BulletBehavior : MonoBehaviour
 
     void OnHit(Thing thing)
     {
-        thing.TakeDamage(damage);
+        thing.TakeDamage(damage, owner);
         Destroy(gameObject);
     }
 }

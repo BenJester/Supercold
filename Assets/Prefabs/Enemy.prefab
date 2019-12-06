@@ -5946,12 +5946,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   dead: 0
-  maxHp: 15
+  maxHp: 30
   hp: 0
   shield: 0
   speed: 0
   targetPos: {x: 0, y: 0}
   buffList: []
+  strength: 0
   snapDistance: 10
   canMove: 0
   canCast: 1

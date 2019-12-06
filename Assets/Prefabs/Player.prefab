@@ -5861,12 +5861,12 @@ MonoBehaviour:
   thing: {fileID: 0}
   handMaxNum: 6
   Deck:
-  - {fileID: 11400000, guid: a3c0432afbebf26458c26594839fcd85, type: 2}
-  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
-  - {fileID: 11400000, guid: a3c0432afbebf26458c26594839fcd85, type: 2}
-  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
+  - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
+  - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
+  - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
+  - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
   - {fileID: 11400000, guid: e378cfb9e9d640847a449b3c01bc24f0, type: 2}
   - {fileID: 11400000, guid: e378cfb9e9d640847a449b3c01bc24f0, type: 2}
@@ -5979,13 +5979,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   dead: 0
-  maxHp: 10
-  hp: 3
+  maxHp: 15
+  hp: 15
   shield: 0
   speed: 400
   targetPos: {x: 0, y: 0}
   buffList:
   - {fileID: 11400000, guid: 710bb8f4effcfdf469887d2c5e4577e7, type: 2}
+  strength: 0
   snapDistance: 5
   canMove: 1
   canCast: 1

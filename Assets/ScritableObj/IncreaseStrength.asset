@@ -9,21 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
-  m_Name: EnemyStrongAttack
+  m_Script: {fileID: 11500000, guid: 6300f5199e9072047a5e5709fbf54d92, type: 3}
+  m_Name: IncreaseStrength
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillName: New SKill
-  detail: This is a card
+  skillType: 1
+  skillName: "\u805A\u6C14"
+  detail: "\u84C4\u529B\u540E\u589E\u52A0 1 \u70B9\u529B\u91CF\uFF0C\u6301\u7EED 5
+    \u79D2"
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 0
+  preCastTime: 1
   postCastTime: 0
   active: 0
   owner: {fileID: 0}
-  target: {fileID: 0}
-  travelSpeed: 180
-  bulletSprite: {fileID: 0}
-  damage: 1
-  num: 1
-  interval: 1
+  gainBuff: {fileID: 11400000, guid: d8e1c6c44d7b93f48b9ceffd0ca6885b, type: 2}

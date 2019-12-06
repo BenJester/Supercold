@@ -6,21 +6,50 @@ using UnityEngine.UI;
 public class AreaBehavior : MonoBehaviour
 {
     public bool active;
+    bool activated;
     [HideInInspector] public Thing owner;
     [HideInInspector] public float delay;
+    [HideInInspector] public float radius;
     [HideInInspector] public int damage;
     float timer;
     public Text countdownText;
     public LayerMask layerMask;
-    // Start is called before the first frame update
-    void Start()
+    SpriteRenderer sprite;
+    
+    void Awake()
     {
-        
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    public void Init()
+    {
+        timer = delay;
+        sprite.size = new Vector2(radius * 2f, radius * 2f);
+    }
+
     void Update()
     {
-        
+        timer -= Time.fixedDeltaTime;
+        countdownText.text = timer.ToString("F2");
+        if (timer <= 0f && !activated)
+        {
+            activated = true;
+            timer = 0f;
+            Do();
+        }
+    }
+
+    void Do()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, radius, layerMask);
+        foreach (Collider2D col in cols)
+        {
+            Thing thing = col.GetComponent<Thing>();
+            if (thing != null && thing != owner)
+            {
+                thing.TakeDamage(damage, owner);
+            }
+        }
+        Destroy(gameObject);
     }
 }

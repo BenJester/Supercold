@@ -15,6 +15,8 @@ public class Thing : MonoBehaviour
     public Vector2 targetPos;
     public List<Buff> buffList;
 
+    public int strength;
+
     public float snapDistance = 10f;
     public bool canMove = true;
     public bool canCast = true;
@@ -28,7 +30,7 @@ public class Thing : MonoBehaviour
     public Action lastCastAction;
     public Queue<Action> buffer;
 
-    Text hpText;
+    UIBuff buffUI;
 
     void Start()
     {
@@ -45,22 +47,42 @@ public class Thing : MonoBehaviour
 
     void InitBuffs()
     {
+        List<Buff> newBuffList = new List<Buff>();
         foreach (var buff in buffList)
         {
             Buff newBuff = Instantiate(buff);
             newBuff.Init(this);
+            newBuffList.Add(newBuff);
         }
+        buffList = newBuffList;
     }
 
     void InitUI()
     {
         GameObject HPCanvas = Instantiate(Prefabs.Instance.HPCanvas, transform);
         HPCanvas.GetComponent<HPText>().thing = this;
+
+        GameObject BuffCanvas = Instantiate(Prefabs.Instance.BuffCanvas, transform);
+        buffUI = BuffCanvas.GetComponent<UIBuff>();
+        buffUI.thing = this;
     }
 
     void Update()
     {
-        
+        HandleBuff();
+    }
+
+    void HandleBuff()
+    {
+        foreach (var buff in buffList)
+        {
+            buff.Tick();
+            int num = buff.UINum();
+            if (num != -1)
+            {
+                buffUI.text.text = num.ToString();
+            }
+        }
     }
 
     public void NextInBuffer()
@@ -76,8 +98,9 @@ public class Thing : MonoBehaviour
         GoToTargetPos();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Thing owner)
     {
+        damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
         if (dead) return;
         if (shield > 0)
         {

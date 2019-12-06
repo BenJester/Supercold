@@ -76,7 +76,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 16, y: 16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -111,6 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991ed1a8d2667014b9d6a5d6f4ca2c8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
+  owner: {fileID: 0}
+  delay: 0
+  radius: 0
+  damage: 0
+  countdownText: {fileID: 3319055047476485887}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &6772843465213855767
 GameObject:
   m_ObjectHideFlags: 0

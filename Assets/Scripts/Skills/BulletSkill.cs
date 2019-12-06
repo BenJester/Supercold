@@ -9,11 +9,25 @@ public class BulletSkill : LockOnSkill
     public float travelSpeed;
     public Sprite bulletSprite;
     public int damage;
+    public int num = 1;
+    public float interval = 0.2f;
 
     public override void Do()
     {
         if (target)
+            Utility.Instance.StartCoroutine(MultiShoot());
+    }
+
+    IEnumerator MultiShoot()
+    {
+        int count = 0;
+        while (count < num)
+        {
+            count += 1;
             Shoot(target);
+            yield return new WaitForSeconds(interval);
+        }
+        
     }
 
     void Shoot(GameObject target)

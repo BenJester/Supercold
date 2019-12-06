@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class EveryXSkillBuff : Buff
 {
     public int x;
-    public int count = 0;
+    public int count;
     public Buff gainBuff;
     public Action lastCastAction;
     public Action DoAction;
@@ -14,6 +14,11 @@ public abstract class EveryXSkillBuff : Buff
     {
         owner = thing;
         Player.Instance.OnPlayCard += UpdateCount;
+    }
+
+    public override int UINum()
+    {
+        return count;
     }
 
     void UpdateCount(Action action)
