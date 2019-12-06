@@ -58,7 +58,7 @@ public abstract class Skill : ScriptableObject
         yield return new WaitForSeconds(postCastTime);
         owner.canMove = true;
 
-        if (isCard())
+        if (isCard() && owner == Player.Instance.thing)
             Player.Instance.BroadcastPlayCard(owner.lastCastAction);
 
         owner.NextInBuffer();

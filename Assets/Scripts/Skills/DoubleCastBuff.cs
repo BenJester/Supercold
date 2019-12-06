@@ -14,7 +14,9 @@ public class DoubleCastBuff : EveryXSkillBuff
 
     IEnumerator DelayedDo()
     {
+        owner.particle.PlayCastParticle();
         yield return new WaitForSeconds(doubleCastDelay);
         lastCastAction.Do();
+        owner.particle.PauseCastParticle();
     }
 }

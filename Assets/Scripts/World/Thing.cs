@@ -46,7 +46,8 @@ public class Thing : MonoBehaviour
     {
         foreach (var buff in buffList)
         {
-            buff.Init();
+            Buff newBuff = Instantiate(buff);
+            newBuff.Init(this);
         }
     }
 
@@ -99,9 +100,8 @@ public class Thing : MonoBehaviour
     public void AddBuff(Buff buff)
     {
         buffList.Add(buff);
-        buff.Init();
+        buff.Init(this);
         buff.Do();
-        buff.owner = this;
     }
 
     void GoToTargetPos()

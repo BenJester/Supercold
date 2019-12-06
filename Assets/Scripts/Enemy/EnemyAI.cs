@@ -22,12 +22,17 @@ public class EnemyAI : MonoBehaviour
         if (skill.GetType().IsSubclassOf(typeof(ActivateSkill)))
         {
             Action action = new Action(thing, (ActivateSkill) skill);
-            action.Do();
+            action.CastTimeDo();
         }
         else if (skill.GetType().IsSubclassOf(typeof(LockOnSkill)))
         {
             Action action = new Action(thing, (LockOnSkill) skill, Player.Instance.gameObject);
-            action.Do();
+            action.CastTimeDo();
+        }
+        else if (skill.GetType().IsSubclassOf(typeof(DirectionSkill)))
+        {
+            Action action = new Action(thing, (DirectionSkill) skill, Player.Instance.transform.position);
+            action.CastTimeDo();
         }
     }
 
@@ -37,7 +42,6 @@ public class EnemyAI : MonoBehaviour
         {
             foreach (Skill skill in skillList)
             {
-                
                 DoSkill(skill);
                 yield return new WaitForSeconds(attackInteval);
             }

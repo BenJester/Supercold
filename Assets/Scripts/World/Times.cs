@@ -14,6 +14,8 @@ public class Times : MonoBehaviour
     public float startDeltaTime;
     public float startTimeScale;
 
+    public float multiplier;
+
     void Awake()
     {
         if (Instance == null) { Instance = this; }

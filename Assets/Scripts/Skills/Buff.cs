@@ -10,5 +10,5 @@ public abstract class Buff : ScriptableObject
     public Thing owner;
     
     public abstract void Do(Action action = null);
-    public abstract void Init();
+    public abstract void Init(Thing thing);
 }

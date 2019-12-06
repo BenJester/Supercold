@@ -22,6 +22,6 @@ MonoBehaviour:
   active: 0
   owner: {fileID: 0}
   target: {fileID: 0}
-  travelSpeed: 200
+  travelSpeed: 180
   bulletSprite: {fileID: 0}
   damage: 3

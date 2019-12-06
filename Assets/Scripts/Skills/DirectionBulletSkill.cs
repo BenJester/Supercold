@@ -19,6 +19,7 @@ public class DirectionBulletSkill : DirectionSkill
     {
         GameObject bullet = Instantiate(Prefabs.Instance.bullet, owner.transform.position, Quaternion.identity, null);
         BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
+        bulletBehavior.bulletType = bulletType.Direction;
         bulletBehavior.travelSpeed = travelSpeed;
         bulletBehavior.damage = damage;
         bulletBehavior.dir = pos;
