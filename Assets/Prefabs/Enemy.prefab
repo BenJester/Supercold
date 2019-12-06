@@ -5946,7 +5946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   dead: 0
-  maxHp: 30
+  maxHp: 200
   hp: 0
   shield: 0
   speed: 0

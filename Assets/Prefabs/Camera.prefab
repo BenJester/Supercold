@@ -117,8 +117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTimeScale: 0.03
-  timeScaleEnterLerpRate: 0.07
-  timeScaleExitLerpRate: 0.02
+  timeScaleEnterLerpRate: 0.3
+  timeScaleExitLerpRate: 0.06
+  startDeltaTime: 0
+  startTimeScale: 0
   multiplier: 0
 --- !u!114 &2285280035504443487
 MonoBehaviour:

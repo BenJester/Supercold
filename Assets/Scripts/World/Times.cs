@@ -13,8 +13,8 @@ public class Times : MonoBehaviour
     float targetTimeScale;
     float targetDeltaTime;
 
-    float startDeltaTime;
-    float startTimeScale;
+    public float startDeltaTime;
+    public float startTimeScale;
 
     public float multiplier;
 

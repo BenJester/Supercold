@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -125,6 +126,18 @@ public class Player : MonoBehaviour
         {
             Reload.OnKey();
         }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Restart();
+        }
+    }
+
+    void Restart()
+    {
+        Time.timeScale = Times.Instance.startTimeScale;
+        Time.fixedDeltaTime = Times.Instance.startDeltaTime;
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     void HandleMovementInput()
