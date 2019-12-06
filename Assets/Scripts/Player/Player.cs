@@ -113,11 +113,11 @@ public class Player : MonoBehaviour
         {
             Hand[3].OnKey();
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             Hand[4].OnKey();
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             Hand[5].OnKey();
         }
