@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while (!thing.dead && !Player.Instance.thing.dead)
+        while (!thing.dead && !Player.Instance.thing.dead && skillList.Count > 0)
         {
             foreach (Skill skill in skillList)
             {

@@ -26,8 +26,8 @@ public class Times : MonoBehaviour
 
     void Update()
     {
-        Time.timeScale = Mathf.Clamp(Time.timeScale + ((targetTimeScale >= Time.timeScale) ? timeScaleLerpRate : -timeScaleLerpRate), 0.01f, 1f);
-        Time.fixedDeltaTime = Mathf.Clamp(Time.fixedDeltaTime + ((targetDeltaTime >= Time.fixedDeltaTime) ? timeScaleLerpRate * startDeltaTime : -timeScaleLerpRate * startDeltaTime), 0.01f * startDeltaTime, startDeltaTime);
+        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, timeScaleLerpRate);
+        Time.fixedDeltaTime = Mathf.Lerp(Time.fixedDeltaTime, targetDeltaTime, timeScaleLerpRate * startDeltaTime);
     }
 
     public void SetTimeScale(float timeScale)

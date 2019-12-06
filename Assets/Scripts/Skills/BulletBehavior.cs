@@ -30,8 +30,13 @@ public class BulletBehavior : MonoBehaviour
     void Update()
     {
         Check();
-        Chase();
+        
         HandleUI();
+    }
+
+    private void FixedUpdate()
+    {
+        Chase();
     }
 
     void Check()
@@ -46,10 +51,14 @@ public class BulletBehavior : MonoBehaviour
         switch (bulletType)
         {
             case bulletType.Lock:
-                countdown = (Vector3.Distance(Player.Instance.transform.position, transform.position)
+                if (target == Player.Instance.gameObject)
+                {
+                    countdown = (Vector3.Distance(Player.Instance.transform.position, transform.position)
                                / travelSpeed);
-                countdownText.text = countdown.ToString("F2");
+                    countdownText.text = countdown.ToString("F2");
+                }
                 break;
+
             case bulletType.Direction:
                 Thing hit = RaycastAlongTravel();
                 if (hit != null && hit == Player.Instance.thing)
@@ -64,6 +73,7 @@ public class BulletBehavior : MonoBehaviour
                     countdownText.text = "";
                 }
                 break;
+
             default:
                 break;
         }
@@ -108,15 +118,8 @@ public class BulletBehavior : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Thing colThing = col.GetComponent<Thing>();
-        if (colThing == owner) return;
-        if (target && colThing == target.GetComponent<Thing>())
-        {
-            OnHit(colThing);
-        }
-        else if (dir != null && colThing)
-        {
-            OnHit(colThing);
-        }
+        if (colThing && colThing == owner) return;
+        OnHit(colThing);
     }
 
     void OnHit(Thing thing)
