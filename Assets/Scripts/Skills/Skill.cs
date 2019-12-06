@@ -30,7 +30,7 @@ public abstract class Skill : ScriptableObject
 
         Action action = CreateAction();
         OnCastFinish();
-        if (!owner.canMove)
+        if (!owner.canCast)
         {
             owner.buffer.Enqueue(action);
 
@@ -51,13 +51,13 @@ public abstract class Skill : ScriptableObject
             owner.particle.PlayCastParticle();
 
         owner.canMove = false;
-        
+        owner.canCast = false;
         yield return new WaitForSeconds(preCastTime);       
         Do();
         owner.particle.PauseCastParticle();
         yield return new WaitForSeconds(postCastTime);
         owner.canMove = true;
-
+        owner.canCast = true;
         if (isCard() && owner == Player.Instance.thing)
             Player.Instance.BroadcastPlayCard(owner.lastCastAction);
 

@@ -8,6 +8,7 @@ public class Prefabs : MonoBehaviour
 
     public GameObject bullet;
     public GameObject HPCanvas;
+    public GameObject area;
 
     void Awake()
     {

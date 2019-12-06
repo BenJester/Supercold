@@ -26,6 +26,8 @@ public class Times : MonoBehaviour
 
     void Update()
     {
+        if (!Player.Instance.thing.canCast && !Player.Instance.thing.canMove)
+            ExitBulletTime();
         Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, timeScaleLerpRate);
         Time.fixedDeltaTime = Mathf.Lerp(Time.fixedDeltaTime, targetDeltaTime, timeScaleLerpRate * startDeltaTime);
     }

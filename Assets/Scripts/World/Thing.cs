@@ -17,11 +17,12 @@ public class Thing : MonoBehaviour
 
     public float snapDistance = 10f;
     public bool canMove = true;
+    public bool canCast = true;
 
     public ThingParticle particle;
 
     CircleCollider2D col;
-    Rigidbody2D body;
+    public Rigidbody2D body;
     SpriteRenderer sprite;
 
     public Action lastCastAction;
@@ -64,7 +65,7 @@ public class Thing : MonoBehaviour
 
     public void NextInBuffer()
     {
-        if (buffer.Count > 0 && canMove)
+        if (buffer.Count > 0 && canCast)
         {
             buffer.Dequeue().CastTimeDo();
         }

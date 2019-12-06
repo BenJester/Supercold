@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 344936451155081609, guid: ce11aae75b781784684e3d9aeee1183c, type: 3}
   HPCanvas: {fileID: 813372922347828068, guid: ade678417f7da3546b28e58e2064bc93, type: 3}
+  area: {fileID: 1700635645603883738, guid: f5a5897023a84324d904a87f9ef7d41f, type: 3}
 --- !u!114 &8970716843531991849
 MonoBehaviour:
   m_ObjectHideFlags: 0
