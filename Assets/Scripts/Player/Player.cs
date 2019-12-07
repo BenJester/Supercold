@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
 
     public Skill Reload;
     public Skill Empty;
+
+    public Text targetPosCountdown;
 
     public int maxMana;
     public int mana;
@@ -51,6 +54,12 @@ public class Player : MonoBehaviour
         HandleMovementInput();
         HandleTime();
         HandleSkillInput();
+        HandleUI();
+    }
+
+    void HandleUI()
+    {
+
     }
 
     void SetHandToEmpty()

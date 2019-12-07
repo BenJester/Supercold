@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dadc3cbdf6c054e965315ce2d88aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTimeScale: 0.03
+  bulletTimeScale: 0.02
   timeScaleEnterLerpRate: 0.3
-  timeScaleExitLerpRate: 0.06
+  timeScaleExitLerpRate: 0.04
   startDeltaTime: 0
   startTimeScale: 0
   multiplier: 0

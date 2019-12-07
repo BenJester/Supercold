@@ -13,6 +13,8 @@ public class Mouse : MonoBehaviour
     public MouseMode mode;
     private LockOnSkill activeSkill;
     private DirectionSkill directionSkill;
+    public Texture2D lockCursor;
+    public Texture2D normalCursor;
 
     void Awake()
     {
@@ -43,7 +45,7 @@ public class Mouse : MonoBehaviour
         Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
 
-        if (hit)
+        if (hit && hit.collider.GetComponent<Thing>() != null && hit.collider.GetComponent<Thing>() != Player.Instance.thing)
         {
             Debug.Log(hit.transform.name);
             return hit.transform.gameObject;
@@ -52,6 +54,12 @@ public class Mouse : MonoBehaviour
     }
 
     void Update()
+    {
+        HandleInput();
+        HandleCursorSprite();
+    }
+
+    void HandleInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -72,6 +80,23 @@ public class Mouse : MonoBehaviour
                 mode = MouseMode.Normal;
             }
         }
-        
+    }
+
+    void HandleCursorSprite()
+    {
+        switch (mode)
+        {
+            case MouseMode.Normal:
+                Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+                break;
+            case MouseMode.LockOn:
+                Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
+                break;
+            case MouseMode.Direction:
+                Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
+                break;
+            default:
+                break;
+        }
     }
 }
