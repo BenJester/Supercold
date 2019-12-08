@@ -23,5 +23,5 @@ MonoBehaviour:
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
   dashSpeed: 2500
-  duration: 0.08
+  duration: 0.12
   damage: 0

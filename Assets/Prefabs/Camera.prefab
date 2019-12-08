@@ -116,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dadc3cbdf6c054e965315ce2d88aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTimeScale: 0.02
+  bulletTimeScale: 0.015
   timeScaleEnterLerpRate: 0.3
-  timeScaleExitLerpRate: 0.04
+  timeScaleExitLerpRate: 0.03
   startDeltaTime: 0
   startTimeScale: 0
   multiplier: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 0
+  lockCursor: {fileID: 2800000, guid: bcee58f59d4abc94890152b3ec4c6f42, type: 3}
+  normalCursor: {fileID: 0}
 --- !u!114 &9058685752367029838
 MonoBehaviour:
   m_ObjectHideFlags: 0
