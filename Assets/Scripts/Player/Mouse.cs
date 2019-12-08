@@ -80,6 +80,10 @@ public class Mouse : MonoBehaviour
                 mode = MouseMode.Normal;
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            mode = MouseMode.Normal;
+        }
     }
 
     void HandleCursorSprite()
