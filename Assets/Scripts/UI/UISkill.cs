@@ -8,9 +8,16 @@ public class UISkill : MonoBehaviour
     public Text skillName;
     public Text detail;
     public Text CastTime;
+    public Skill skill;
 
     public void ProcessString()
     {
 
     }
+
+    public void OnSkillClick()
+    {
+        skill.OnKey();
+    }
+
 }

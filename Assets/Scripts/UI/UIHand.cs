@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIHand : MonoBehaviour
 {
     public List<UISkill> skillList;
+    public UISkill reload;
 
     private void Update()
     {
@@ -14,6 +15,11 @@ public class UIHand : MonoBehaviour
             skillList[i].skillName.text = Player.Instance.Hand[i].skillName;
             skillList[i].detail.text = Player.Instance.Hand[i].detail;
             skillList[i].CastTime.text = Player.Instance.Hand[i].preCastTime + Player.Instance.Hand[i].postCastTime + "s";
+            skillList[i].skill = Player.Instance.Hand[i];
         }
+        reload.skillName.text = Player.Instance.Reload.skillName;
+        reload.detail.text = Player.Instance.Reload.detail;
+        reload.CastTime.text = Player.Instance.Reload.preCastTime + Player.Instance.Reload.postCastTime + "s";
+        reload.skill = Player.Instance.Reload;
     }
 }
