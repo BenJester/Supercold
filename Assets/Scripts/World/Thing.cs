@@ -62,9 +62,9 @@ public class Thing : MonoBehaviour
         GameObject HPCanvas = Instantiate(Prefabs.Instance.HPCanvas, transform);
         HPCanvas.GetComponent<HPText>().thing = this;
 
-        GameObject BuffCanvas = Instantiate(Prefabs.Instance.BuffCanvas, transform);
-        buffUI = BuffCanvas.GetComponent<UIBuff>();
-        buffUI.thing = this;
+        //GameObject BuffCanvas = Instantiate(Prefabs.Instance.BuffCanvas, transform);
+        //buffUI = BuffCanvas.GetComponent<UIBuff>();
+        //buffUI.thing = this;
     }
 
     void Update()
@@ -80,7 +80,7 @@ public class Thing : MonoBehaviour
             int num = buff.UINum();
             if (num != -1)
             {
-                buffUI.text.text = num.ToString();
+                //buffUI.text.text = num.ToString();
             }
         }
     }

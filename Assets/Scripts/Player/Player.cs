@@ -47,16 +47,13 @@ public class Player : MonoBehaviour
         InitHand();
     }
 
-    
-
     void Update()
     {
         HandleMovementInput();
         HandleTime();
         HandleSkillInput();
         HandleUI();
-        if (thing.lastCastAction != null)
-            Debug.Log(thing.lastCastAction.actionName);
+
     }
 
     void HandleUI()
