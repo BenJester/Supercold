@@ -20,7 +20,7 @@ public abstract class Skill : ScriptableObject
     public bool active;
     protected Rigidbody2D rb;
     public Thing owner;
-
+    Action action;
     public abstract void Do();
     public abstract void OnKey();
     public abstract Action CreateAction();
@@ -28,7 +28,7 @@ public abstract class Skill : ScriptableObject
     public void Cast()
     {
 
-        Action action = CreateAction();
+        action = CreateAction();
         OnCastFinish();
         if (!owner.canCast)
         {
@@ -36,20 +36,19 @@ public abstract class Skill : ScriptableObject
 
             return;
         }
-        
-        if (isCard())
-        {
-            owner.lastCastAction = action;          
-        }
-            
         Utility.Instance.StartCoroutine(CastTime());
     }
 
     public IEnumerator CastTime()
     {
+        if (isCard())
+        {
+            owner.lastCastAction = action;
+        }
+
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
-
+        
         owner.canMove = false;
         owner.canCast = false;
         yield return new WaitForSeconds(preCastTime);       

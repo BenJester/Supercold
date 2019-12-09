@@ -20,7 +20,7 @@ public class DirectionDashSkill : DirectionSkill
     IEnumerator Dash(Vector2 pos)
     {
         float timer = 0f;
-        owner.canMove = false;
+        //owner.canMove = false;
 
         while (timer < duration)
         {
@@ -28,7 +28,7 @@ public class DirectionDashSkill : DirectionSkill
             yield return new WaitForEndOfFrame();
             timer += Time.fixedDeltaTime;
         }
-        owner.canMove = true;
+        //owner.canMove = true;
         owner.targetPos = targetPos;
     }
 }

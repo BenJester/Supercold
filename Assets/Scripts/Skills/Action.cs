@@ -16,7 +16,7 @@ public class Action
     public ActivateSkill activateSkill;
     public LockOnSkill lockOnSkill;
     public DirectionSkill directionSkill;
-
+    public string actionName;
     // movement
     public Action(Thing owner, Vector2 targetPos)
     {
@@ -31,6 +31,7 @@ public class Action
         actionType = ActionType.ActivateSkill;
         this.owner = owner;
         activateSkill = skill;
+        actionName = skill.skillName;
     }
 
     // lock on skill
@@ -40,6 +41,7 @@ public class Action
         this.owner = owner;
         lockOnSkill = skill;
         this.target = target;
+        actionName = skill.skillName;
     }
 
     // direction skill
@@ -49,6 +51,7 @@ public class Action
         this.owner = owner;
         directionSkill = skill;
         targetPos = pos;
+        actionName = skill.skillName;
     }
 
     public void Do()
