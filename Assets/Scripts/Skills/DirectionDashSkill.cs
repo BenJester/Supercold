@@ -7,7 +7,6 @@ public class DirectionDashSkill : DirectionSkill
 {
     public float dashSpeed;
     public float duration;
-    public int damage;
     Vector2 relativeDir;
 
     public override void Do()

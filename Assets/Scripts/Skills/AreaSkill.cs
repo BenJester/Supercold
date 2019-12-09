@@ -8,7 +8,6 @@ public class AreaSkill : DirectionSkill
     public float radius;
     public float delay;
     public Sprite bulletSprite;
-    public int damage;
 
     public override void Do()
     {

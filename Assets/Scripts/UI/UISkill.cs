@@ -9,10 +9,13 @@ public class UISkill : MonoBehaviour
     public Text detail;
     public Text CastTime;
     public Skill skill;
+    public Thing thing;
+    public string processedDetail;
 
-    public void ProcessString()
+    public void ProcessString(string str)
     {
-
+        string res;
+        res = str.Replace("dmg", (skill.damage + thing.strength).ToString());
     }
 
     public void OnSkillClick()

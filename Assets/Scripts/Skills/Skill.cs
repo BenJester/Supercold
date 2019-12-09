@@ -14,6 +14,7 @@ public abstract class Skill : ScriptableObject
     public string detail = "This is a card";
     public Sprite sprite;
     public int cost;
+    public int damage;
     public float preCastTime;
     public float postCastTime;
 

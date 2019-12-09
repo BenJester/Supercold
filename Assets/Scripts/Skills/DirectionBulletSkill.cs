@@ -7,7 +7,6 @@ public class DirectionBulletSkill : DirectionSkill
 {
     public float travelSpeed;
     public Sprite bulletSprite;
-    public int damage;
 
     public override void Do()
     {
