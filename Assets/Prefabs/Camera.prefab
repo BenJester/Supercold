@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTimeScale: 0.015
-  castTimeScale: 0.85
+  castTimeScale: 0.8
   timeScaleEnterLerpRate: 0.3
   timeScaleExitLerpRate: 0.03
   startDeltaTime: 0

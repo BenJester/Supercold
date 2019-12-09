@@ -17,11 +17,11 @@ MonoBehaviour:
   detail: "\u5411\u76EE\u6807\u65B9\u5411\u51B2\u523A\u4E00\u6BB5\u8DDD\u79BB"
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 0
-  postCastTime: 0.1
+  preCastTime: 0.02
+  postCastTime: 0.08
   active: 0
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
-  dashSpeed: 2500
-  duration: 0.12
+  dashSpeed: 3000
+  duration: 0.08
   damage: 0
