@@ -11,10 +11,11 @@ public class Mouse : MonoBehaviour
 {
     public static Mouse Instance { get; private set; }
     public MouseMode mode;
-    private LockOnSkill activeSkill;
+    private LockOnSkill lockOnSkill;
     private DirectionSkill directionSkill;
     public Texture2D lockCursor;
     public Texture2D normalCursor;
+    public SpriteRenderer rangeIndicator;
 
     void Awake()
     {
@@ -25,7 +26,7 @@ public class Mouse : MonoBehaviour
     public void LockOnMouse(LockOnSkill skill)
     {
         mode = MouseMode.LockOn;
-        activeSkill = skill;
+        lockOnSkill = skill;
     }
 
     public void SelectDirection(DirectionSkill skill)
@@ -65,10 +66,11 @@ public class Mouse : MonoBehaviour
         {
             if (mode == MouseMode.LockOn)
             {
+                
                 GameObject hit = MouseSelectGameObj();
                 if (hit)
                 {
-                    SelectTarget(activeSkill, hit);
+                    SelectTarget(lockOnSkill, hit);
                     mode = MouseMode.Normal;
                 }
             }
@@ -92,12 +94,15 @@ public class Mouse : MonoBehaviour
         {
             case MouseMode.Normal:
                 Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+                rangeIndicator.size = Vector2.zero;
                 break;
             case MouseMode.LockOn:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
+                rangeIndicator.size = new Vector2(lockOnSkill.range * 2f, lockOnSkill.range * 2f);
                 break;
             case MouseMode.Direction:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
+                rangeIndicator.size = new Vector2(directionSkill.range * 2f, directionSkill.range * 2f);
                 break;
             default:
                 break;

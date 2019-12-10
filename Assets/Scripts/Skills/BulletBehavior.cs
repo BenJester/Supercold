@@ -17,7 +17,7 @@ public class BulletBehavior : MonoBehaviour
     [HideInInspector] public int damage;
     public GameObject target;
     public Vector2 dir;
-    Vector3 relativeDir;
+    public Vector3 relativeDir;
     Rigidbody2D body;
     public Text countdownText;
     public LayerMask layerMask;

@@ -11,6 +11,9 @@ public class Utility : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
+    public LayerMask thingLayer;
+    public LayerMask bulletLayer;
+
     public void InitDeck(ref List<Skill> deck, Thing owner)
     {
         List<Skill> res = new List<Skill>();
