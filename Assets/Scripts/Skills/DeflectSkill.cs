@@ -11,11 +11,14 @@ public class DeflectSkill : LockOnSkill
         foreach (Collider2D col in cols)
         {
             BulletBehavior bulletBehavior = col.GetComponent<BulletBehavior>();
-            bulletBehavior.bulletType = bulletType.Lock;
-            bulletBehavior.owner = owner;
-            bulletBehavior.damage *= 2;
-            bulletBehavior.travelSpeed *= 2;
-            bulletBehavior.target = target;
+            if (bulletBehavior != null)
+            {
+                bulletBehavior.bulletType = bulletType.Lock;
+                bulletBehavior.owner = owner;
+                bulletBehavior.damage *= 2;
+                bulletBehavior.travelSpeed *= 2;
+                bulletBehavior.target = target;
+            }
         }
     }
 }
