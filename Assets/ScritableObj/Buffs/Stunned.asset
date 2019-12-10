@@ -9,16 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36dbb2e7bb727bd4bb4cd5c2d33c124f, type: 3}
-  m_Name: Empty
+  m_Script: {fileID: 11500000, guid: df9d5e675f1014340ae2271a85f002fc, type: 3}
+  m_Name: Stunned
   m_EditorClassIdentifier: 
-  skillType: 2
-  skillName: "\u7A7A\u4F4D"
-  detail: 
-  sprite: {fileID: 0}
-  cost: 0
-  preCastTime: 0
-  postCastTime: 0
-  active: 0
+  buffName: "\u7729\u6655"
+  detail: This is a buff
+  duration: 2
+  currDuration: -1
   owner: {fileID: 0}
-  gainBuff: {fileID: 0}

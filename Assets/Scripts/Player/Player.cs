@@ -179,12 +179,10 @@ public class Player : MonoBehaviour
                 
             if (Deck.Count == 0)
                 DiscardToDeck();
-            else
-            {
-                int index = Random.Range(0, Deck.Count - 1);
-                InsertCard(Deck[index]);
-                Deck.RemoveAt(index);
-            }
+
+            int index = Random.Range(0, Deck.Count - 1);
+            InsertCard(Deck[index]);
+            Deck.RemoveAt(index);
         }
     }
 

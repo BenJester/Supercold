@@ -15,8 +15,7 @@ public class DeflectSkill : LockOnSkill
             {
                 bulletBehavior.bulletType = bulletType.Lock;
                 bulletBehavior.owner = owner;
-                bulletBehavior.damage *= 2;
-                bulletBehavior.travelSpeed *= 2;
+                bulletBehavior.travelSpeed *= 4f;
                 bulletBehavior.target = target;
             }
         }

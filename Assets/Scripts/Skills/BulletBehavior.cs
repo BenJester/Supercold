@@ -15,6 +15,7 @@ public class BulletBehavior : MonoBehaviour
     [HideInInspector] public Thing owner;
     [HideInInspector] public float travelSpeed;
     [HideInInspector] public int damage;
+    [HideInInspector] public Buff gainBuff;
     public GameObject target;
     public Vector2 dir;
     public Vector3 relativeDir;
@@ -125,6 +126,8 @@ public class BulletBehavior : MonoBehaviour
     void OnHit(Thing thing)
     {
         thing.TakeDamage(damage, owner);
+        if (gainBuff != null)
+            thing.AddBuff(Instantiate(gainBuff));
         Destroy(gameObject);
     }
 }

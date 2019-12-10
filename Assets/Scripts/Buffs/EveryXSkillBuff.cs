@@ -10,9 +10,8 @@ public abstract class EveryXSkillBuff : Buff
     public Action lastCastAction;
     public Action DoAction;
 
-    public override void Init(Thing thing)
+    public override void SecondInit()
     {
-        owner = thing;
         Player.Instance.OnPlayCard += UpdateCount;
     }
 

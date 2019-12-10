@@ -7,28 +7,49 @@ public abstract class Buff : ScriptableObject
     public string buffName = "New Buff";
     public string detail = "This is a buff";
     public float duration = -1f;
+    public float currDuration;
     public Thing owner;
     
     public abstract void Do(Action action = null);
-    public abstract void Init(Thing thing);
+
+    public void Init(Thing thing)
+    {
+        currDuration = duration;
+        owner = thing;
+        SecondInit();
+    }
+
+    public virtual void SecondInit()
+    {
+    }
+
+    public void RemoveFromList()
+    {
+        //TODO
+        //owner.buffList.Remove(this);
+    }
+
     public virtual void End()
     {
     }
     public virtual int UINum()
     {
-        return -1;
+        return 1;
     }
 
     public void Tick()
     {
-        if (duration == -1f)
+        if (duration == -1f || currDuration == -1f)
             return;
-        duration -= Time.fixedDeltaTime;
-        if (duration < 0)
+        
+        if (currDuration <= 0)
         {
             End();
-            duration = -1;
+            currDuration = -1f;
+            RemoveFromList();
         }
-            
+        else
+            currDuration -= Time.fixedDeltaTime;
+
     }
 }

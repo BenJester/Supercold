@@ -9,21 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf9050bb6cdf5c4086d826f7c35d123, type: 3}
-  m_Name: EnemyStrongAttack
+  m_Script: {fileID: 11500000, guid: 6300f5199e9072047a5e5709fbf54d92, type: 3}
+  m_Name: HasteSkill
   m_EditorClassIdentifier: 
   skillType: 0
-  skillName: New SKill
-  detail: This is a card
+  skillName: "\u6025\u901F"
+  detail: "\u79FB\u52A8\u901F\u5EA6 +500%, \u6301\u7EED 0.2 \u79D2"
   sprite: {fileID: 0}
   cost: 0
+  range: 0
+  damage: 0
   preCastTime: 0
   postCastTime: 0
   active: 0
   owner: {fileID: 0}
-  target: {fileID: 0}
-  travelSpeed: 180
-  bulletSprite: {fileID: 0}
-  damage: 1
-  num: 1
-  interval: 1
+  gainBuff: {fileID: 11400000, guid: be496fe4e71c1a74b992f2ebb400f3a5, type: 2}

@@ -6,19 +6,17 @@ using UnityEngine;
 public class StatsBuff : Buff
 {
     public int strength;
+    public float speedPercentage;
 
     public override void Do(Action action = null)
     {
         owner.strength += strength;
-    }
-
-    public override void Init(Thing thing)
-    {
-        owner = thing;
+        owner.speedMultiplier += speedPercentage;
     }
 
     public override void End()
     {
         owner.strength -= strength;
+        owner.speedMultiplier -= speedPercentage;
     }
 }

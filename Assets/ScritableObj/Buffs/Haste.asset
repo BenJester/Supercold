@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7c3df490a6219a4dbbdea09d768d42f, type: 3}
-  m_Name: StatsBuff
+  m_Name: Haste
   m_EditorClassIdentifier: 
-  buffName: "\u529B\u91CF"
-  detail: "\u529B\u91CF + 1"
-  duration: -51.377026
+  buffName: "\u6025\u901F"
+  detail: "\u79FB\u52A8\u901F\u5EA6 +500%"
+  duration: 0.2
+  currDuration: -1
   owner: {fileID: 0}
-  strength: 1
+  strength: 0
+  speedPercentage: 5

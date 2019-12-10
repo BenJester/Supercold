@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c326a718d5b980448b3c3f9636dcaa6, type: 3}
-  m_Name: DefaultReload
+  m_Script: {fileID: 11500000, guid: d7c3df490a6219a4dbbdea09d768d42f, type: 3}
+  m_Name: Strength+1
   m_EditorClassIdentifier: 
-  skillType: 2
-  skillName: "\u88C5\u586B"
-  detail: "\u91CD\u65B0\u62BD\u724C"
-  sprite: {fileID: 0}
-  cost: 0
-  preCastTime: 1.8
-  postCastTime: 0.2
-  active: 0
+  buffName: "\u529B\u91CF"
+  detail: "\u529B\u91CF + 1"
+  duration: -1
+  currDuration: 0
   owner: {fileID: 0}
-  gainBuff: {fileID: 0}
+  strength: 1
+  speedPercentage: 0

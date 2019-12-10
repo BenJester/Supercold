@@ -26,7 +26,9 @@ public class UIBuffPanel : MonoBehaviour
         thing = Player.Instance.thing;
         for (int i = 0; i < thing.buffList.Count; i++)
         {
-            buffTextList[i].text = thing.buffList[i].buffName + " " + thing.buffList[i].UINum();
+            buffTextList[i].text = thing.buffList[i].buffName + " " 
+                + thing.buffList[i].UINum() + " " 
+                + (thing.buffList[i].currDuration != -1f ? thing.buffList[i].currDuration.ToString("F2") : "");
         }
     }
 }

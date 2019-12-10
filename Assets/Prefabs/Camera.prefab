@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTimeScale: 0.015
-  castTimeScale: 0.8
+  castTimeScale: 0.7
   timeScaleEnterLerpRate: 0.3
   timeScaleExitLerpRate: 0.03
   startDeltaTime: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   mode: 0
   lockCursor: {fileID: 2800000, guid: bcee58f59d4abc94890152b3ec4c6f42, type: 3}
   normalCursor: {fileID: 0}
+  rangeIndicator: {fileID: 0}
 --- !u!114 &9058685752367029838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc554377c6b8ce4da651fd168e67d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thingLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  bulletLayer:
+    serializedVersion: 2
+    m_Bits: 256

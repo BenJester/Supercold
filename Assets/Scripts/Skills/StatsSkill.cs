@@ -8,6 +8,6 @@ public class StatsSkill : ActivateSkill
 
     public override void Do()
     {
-        owner.AddBuff(gainBuff);
+        owner.AddBuff(Instantiate(gainBuff));
     }
 }

@@ -48,7 +48,6 @@ public class Mouse : MonoBehaviour
 
         if (hit && hit.collider.GetComponent<Thing>() != null && hit.collider.GetComponent<Thing>() != Player.Instance.thing)
         {
-            Debug.Log(hit.transform.name);
             return hit.transform.gameObject;
         }
         else return null;

@@ -11,6 +11,8 @@ public class Thing : MonoBehaviour
     public int hp;
     public int shield;
 
+    public float rawSpeed;
+    public float speedMultiplier = 1f;
     public float speed;
     public Vector2 targetPos;
     public List<Buff> buffList;
@@ -20,7 +22,7 @@ public class Thing : MonoBehaviour
     public float snapDistance = 10f;
     public bool canMove = true;
     public bool canCast = true;
-
+    public bool stunned = false;
     public ThingParticle particle;
 
     CircleCollider2D col;
@@ -31,6 +33,8 @@ public class Thing : MonoBehaviour
     public Queue<Action> buffer;
 
     UIBuff buffUI;
+    public HPText HPCanvas;
+    LineRenderer lr;
 
     void Start()
     {
@@ -59,9 +63,10 @@ public class Thing : MonoBehaviour
 
     void InitUI()
     {
-        GameObject HPCanvas = Instantiate(Prefabs.Instance.HPCanvas, transform);
-        HPCanvas.GetComponent<HPText>().thing = this;
-
+        var HPCanvasObj = Instantiate(Prefabs.Instance.HPCanvas, transform);
+        HPCanvas = HPCanvasObj.GetComponent<HPText>();
+        HPCanvas.thing = this;
+        lr = GetComponent<LineRenderer>();
         //GameObject BuffCanvas = Instantiate(Prefabs.Instance.BuffCanvas, transform);
         //buffUI = BuffCanvas.GetComponent<UIBuff>();
         //buffUI.thing = this;
@@ -70,6 +75,12 @@ public class Thing : MonoBehaviour
     void Update()
     {
         HandleBuff();
+        speed = rawSpeed * speedMultiplier;
+        if (lr != null)
+        {
+            lr.SetPosition(0, transform.position);
+            lr.SetPosition(1, targetPos);
+        }
     }
 
     void HandleBuff()
@@ -136,7 +147,7 @@ public class Thing : MonoBehaviour
         Vector2 dir = (targetPos - body.position).normalized;
         body.MovePosition(body.position + dir * speed * Time.fixedDeltaTime);
 
-        if (Vector2.Distance(body.position, targetPos) <= snapDistance)
+        if (Vector2.Distance(body.position, targetPos) <= snapDistance * speedMultiplier)
         {
             body.position = targetPos;
         }

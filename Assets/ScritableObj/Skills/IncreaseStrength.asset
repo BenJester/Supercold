@@ -9,20 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbfa7cc8bd91695418a67ba93f3bf4b8, type: 3}
-  m_Name: AreaDamage
+  m_Script: {fileID: 11500000, guid: 6300f5199e9072047a5e5709fbf54d92, type: 3}
+  m_Name: IncreaseStrength
   m_EditorClassIdentifier: 
-  skillType: 3
-  skillName: "\u8303\u56F4\u653B\u51FB"
-  detail: "\u5BF9\u8303\u56F4\u5185\u654C\u4EBA\u9020\u6210 1 \u70B9\u4F24\u5BB3"
+  skillType: 1
+  skillName: "\u805A\u6C14"
+  detail: "\u84C4\u529B\u540E\u589E\u52A0 1 \u70B9\u529B\u91CF\uFF0C\u6301\u7EED 5
+    \u79D2"
   sprite: {fileID: 0}
   cost: 0
-  preCastTime: 0.25
+  range: 0
+  damage: 0
+  preCastTime: 1
   postCastTime: 0
   active: 0
   owner: {fileID: 0}
-  targetPos: {x: 0, y: 0}
-  radius: 250
-  delay: 0.9
-  bulletSprite: {fileID: 0}
-  damage: 1
+  gainBuff: {fileID: 11400000, guid: d8e1c6c44d7b93f48b9ceffd0ca6885b, type: 2}

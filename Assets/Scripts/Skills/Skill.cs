@@ -50,18 +50,26 @@ public abstract class Skill : ScriptableObject
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
-        
+
+        owner.HPCanvas.ShowCastTimeBar(preCastTime + postCastTime);
+
         owner.canMove = false;
         owner.canCast = false;
-        yield return new WaitForSeconds(preCastTime);       
-        Do();
-        owner.particle.PauseCastParticle();
-        yield return new WaitForSeconds(postCastTime);
-        owner.canMove = true;
-        owner.canCast = true;
-        if (isCard() && owner == Player.Instance.thing)
-            Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+        yield return new WaitForSeconds(preCastTime);
 
+        owner.particle.PauseCastParticle();
+        if (!owner.stunned)
+        {
+            Do();
+            yield return new WaitForSeconds(postCastTime);
+            owner.canMove = true;
+            owner.canCast = true;
+            if (isCard() && owner == Player.Instance.thing)
+                Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+        }
+        
+        while (owner.stunned)
+            yield return new WaitForEndOfFrame();
         owner.NextInBuffer();
     }
 

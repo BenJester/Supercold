@@ -18,6 +18,8 @@ MonoBehaviour:
     2 \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cost: 0
+  range: 0
+  damage: 1
   preCastTime: 0.1
   postCastTime: 0
   active: 0
@@ -25,4 +27,3 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   travelSpeed: 700
   bulletSprite: {fileID: 0}
-  damage: 1
