@@ -10,7 +10,6 @@ public class BulletSkill : LockOnSkill
     public Sprite bulletSprite;
     public int num = 1;
     public float interval = 0.2f;
-    public Buff gainBuff;
 
     public override void Do()
     {

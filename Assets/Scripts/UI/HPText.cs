@@ -18,6 +18,13 @@ public class HPText : MonoBehaviour
     public Image debuffTimeBg;
     public Text debuffTimeText;
 
+    public Image lossHPbar;
+
+    public float lossHPAnimDelay;
+    public float lossHPAnimDuration;
+    float currDelayTimer;
+    bool startTimer;
+
     Buff currBuff;
 
     float currCastTime;
@@ -32,6 +39,47 @@ public class HPText : MonoBehaviour
     {
         HideCastTimeBar();
         HideDebuffTimeBar();
+        thing.OnLoseHP += UpdateLostHPUI;
+    }
+
+    void UpdateLostHPUI(int lossHP)
+    {
+        currDelayTimer = lossHPAnimDelay;
+        startTimer = true;
+    }
+
+    void HandleLostHPUI()
+    {
+        
+        if (currDelayTimer < 0f)
+        {
+            StartCoroutine(LossHPAnim());
+            currDelayTimer = lossHPAnimDelay;
+            startTimer = false;
+        }
+        if (startTimer)
+            currDelayTimer -= Time.fixedDeltaTime;
+    }
+
+    IEnumerator LossHPAnim()
+    {
+        float timer = 0f;
+        //while (timer < lossHPAnimDuration)
+        //{
+        //    timer += Time.fixedDeltaTime;
+        //    lossHPbar.fillAmount = lossHPbar.fillAmount -
+        //                            (lossHPbar.fillAmount - (float) thing.hp / thing.maxHp)
+        //                            * (timer / lossHPAnimDuration * lossHPAnimDuration);
+        //    yield return new WaitForEndOfFrame();
+        //}
+        while (lossHPbar.fillAmount > (float)thing.hp / thing.maxHp)
+        {
+            timer += Time.fixedDeltaTime;
+            lossHPbar.fillAmount = lossHPbar.fillAmount -
+                                    lossHPAnimDuration;
+            yield return new WaitForEndOfFrame();
+        }
+        lossHPbar.fillAmount = (float) thing.hp / thing.maxHp;
     }
 
     private void Update()
@@ -57,6 +105,8 @@ public class HPText : MonoBehaviour
             if (currDebuffTime >= totalDebuffTime)
                 HideCastTimeBar();
         }
+
+        HandleLostHPUI();
     }
 
     public void ShowCastTimeBar(float castTime)

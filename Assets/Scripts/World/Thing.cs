@@ -38,6 +38,9 @@ public class Thing : MonoBehaviour
     public HPText HPCanvas;
     LineRenderer lr;
 
+    public delegate void LoseHP(int lossHP);
+    public event LoseHP OnLoseHP;
+
     void Start()
     {
         hp = maxHp;
@@ -77,7 +80,7 @@ public class Thing : MonoBehaviour
     void Update()
     {
         HandleBuff();
-        speed = rawSpeed * speedMultiplier;
+        speed = rawSpeed * Mathf.Clamp(speedMultiplier, 0f, 15f);
         if (lr != null)
         {
             lr.SetPosition(0, transform.position);
@@ -124,6 +127,8 @@ public class Thing : MonoBehaviour
         }
             
         hp -= damage;
+        if (damage > 0)
+            OnLoseHP.Invoke(damage);
         if (hp <= 0)
             Die();
     }

@@ -7,7 +7,9 @@ public abstract class Buff : ScriptableObject
     public string buffName = "New Buff";
     public string detail = "This is a buff";
     public float duration = -1f;
+    [HideInInspector]
     public float currDuration;
+    [HideInInspector]
     public Thing owner;
     
     public abstract void Do(Action action = null);

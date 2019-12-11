@@ -13,14 +13,16 @@ public abstract class Skill : ScriptableObject
     public string skillName = "New SKill";
     public string detail = "This is a card";
     public Sprite sprite;
-    public int cost;
+    //public int cost;
     public float range;
     public int damage;
+    public Buff gainBuff;
     public float preCastTime;
     public float postCastTime;
 
-    public bool active;
+    //public bool active;
     protected Rigidbody2D rb;
+    [HideInInspector]
     public Thing owner;
     Action action;
     public abstract void Do();
@@ -76,13 +78,6 @@ public abstract class Skill : ScriptableObject
     public void OnCastFinish()
     {
         Player.Instance.DiscardCard(this);
-    }
-
-
-    // 检查是否可以执行
-    public virtual bool Check()
-    {
-        return active;
     }
 
     public bool isCard()

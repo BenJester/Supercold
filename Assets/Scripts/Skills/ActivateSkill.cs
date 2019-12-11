@@ -5,7 +5,6 @@ using UnityEngine;
 // 瞬发技能
 public abstract class ActivateSkill : Skill
 {
-    public Buff gainBuff;
 
     public override void OnKey()
     {

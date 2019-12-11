@@ -11,6 +11,7 @@ public class AreaBehavior : MonoBehaviour
     [HideInInspector] public float delay;
     [HideInInspector] public float radius;
     [HideInInspector] public int damage;
+    [HideInInspector] public Buff buff;
     float timer;
     public Text countdownText;
     public LayerMask layerMask;
@@ -48,6 +49,8 @@ public class AreaBehavior : MonoBehaviour
             if (thing != null && thing.team != owner.team)
             {
                 thing.TakeDamage(damage, owner);
+                if (buff != null)
+                    thing.AddBuff(Instantiate(buff));
             }
         }
         Destroy(gameObject);

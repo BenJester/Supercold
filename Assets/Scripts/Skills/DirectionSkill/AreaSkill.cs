@@ -23,6 +23,7 @@ public class AreaSkill : DirectionSkill
         areaBehavior.damage = damage;
         areaBehavior.owner = owner;
         areaBehavior.delay = delay;
+        areaBehavior.buff = gainBuff;
         areaBehavior.Init();
     }
 }
