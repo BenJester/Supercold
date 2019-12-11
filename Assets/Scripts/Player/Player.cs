@@ -167,6 +167,16 @@ public class Player : MonoBehaviour
         return count;
     }
 
+    public void DrawCard(Skill skill)
+    {
+        if (HandCount() >= handMaxNum)
+        {
+            Debug.Log("hand is full");
+            return;
+        }
+        InsertCard(skill);
+    }
+
     public void DrawCard(int number)
     {
         for (int i = 0; i < number; i ++)

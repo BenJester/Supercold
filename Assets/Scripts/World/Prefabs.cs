@@ -10,6 +10,7 @@ public class Prefabs : MonoBehaviour
     public GameObject HPCanvas;
     public GameObject BuffCanvas;
     public GameObject area;
+    public GameObject intentionUI;
 
     void Awake()
     {

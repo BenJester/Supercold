@@ -104,6 +104,8 @@ MonoBehaviour:
   BuffCanvas: {fileID: 8012602971966665385, guid: 16e97b6573aa2774ba1cb6f6d53754cc,
     type: 3}
   area: {fileID: 1700635645603883738, guid: f5a5897023a84324d904a87f9ef7d41f, type: 3}
+  intentionUI: {fileID: 4153800441984426024, guid: 846c8658f39f77f45b872e76901a2fd0,
+    type: 3}
 --- !u!114 &8970716843531991849
 MonoBehaviour:
   m_ObjectHideFlags: 0

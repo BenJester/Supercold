@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: {fileID: 8439773520709701217}
   detail: {fileID: 8439773521312876522}
-  CastTime: {fileID: 2835955146042698614}
+  castTime: {fileID: 2835955146042698614}
   skill: {fileID: 0}
 --- !u!1 &8439773521312876520
 GameObject:

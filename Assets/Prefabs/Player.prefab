@@ -6149,6 +6149,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8675bcc050c0eec408f0b36d4cba7eeb, type: 2}
   - {fileID: 11400000, guid: 8675bcc050c0eec408f0b36d4cba7eeb, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: b306ce56dde6ed742ac27eb2184b589c, type: 2}
   Discard: []
   Hand: []
   Reload: {fileID: 11400000, guid: 63ebfe29d03a38b408997530890e2174, type: 2}

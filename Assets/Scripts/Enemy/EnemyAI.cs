@@ -10,12 +10,26 @@ public class EnemyAI : MonoBehaviour
     bool init;
     public bool ready;
 
+    public int currIndex;
+    public UIIntention intentionUI;
+
     void Start()
     {
-        thing = GetComponent<Thing>(); 
+        thing = GetComponent<Thing>();
+        InitUI();
     }
 
+    void InitUI()
+    {
+        var intentionUIObj = Instantiate(Prefabs.Instance.intentionUI, transform);
+        intentionUI = intentionUIObj.GetComponent<UIIntention>();
+        intentionUI.enemy = this;
+    }
 
+    public Skill GetNextSkill()
+    {
+        return skillList[currIndex + 1 < skillList.Count ? currIndex + 1 : 0];
+    }
 
     void DoSkill(Skill skill)
     {
@@ -49,6 +63,7 @@ public class EnemyAI : MonoBehaviour
     {
         while (!thing.dead && !Player.Instance.thing.dead && skillList.Count > 0)
         {
+            currIndex = 0;
             foreach (Skill skill in skillList)
             {
                 while (skill.range != 0 && Vector3.Distance(transform.position, Player.Instance.transform.position) > skill.range)
@@ -57,7 +72,7 @@ public class EnemyAI : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
                 DoSkill(skill);
-                
+                currIndex += 1;
                 yield return new WaitForSeconds(attackInteval);
             }
         }
@@ -72,5 +87,15 @@ public class EnemyAI : MonoBehaviour
             StartCoroutine(Attack());
         }
         
+    }
+
+    void OnMouseOver()
+    {
+        intentionUI.DisplayIntention();
+    }
+
+    void OnMouseExit()
+    {
+        intentionUI.HideIntention();
     }
 }
