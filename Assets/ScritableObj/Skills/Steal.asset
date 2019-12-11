@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Steal
   m_EditorClassIdentifier: 
   skillType: 0
-  skillName: New SKill
-  detail: This is a card
+  skillName: "\u9884\u77E5"
+  detail: "\u5077\u53D6\u76EE\u6807\u4E0B\u4E00\u5F20\u65BD\u653E\u7684\u724C\uFF0C\u5E76\u5C06\u65BD\u6CD5\u65F6\u95F4\u51CF\u4E3A
+    0"
   sprite: {fileID: 0}
   cost: 0
   range: 0
   damage: 0
-  preCastTime: 0
-  postCastTime: 0
+  preCastTime: 0.05
+  postCastTime: 0.05
   active: 0
   owner: {fileID: 0}
   target: {fileID: 0}

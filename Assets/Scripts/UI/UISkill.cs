@@ -12,6 +12,7 @@ public class UISkill : MonoBehaviour
 
     public void DisplaySkill(Skill skill)
     {
+        this.skill = skill;
         skillName.text = skill.skillName;
         detail.text = ProcessString(skill, skill.detail);
         castTime.text = (skill.preCastTime + skill.postCastTime).ToString("F2") + "s";

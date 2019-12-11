@@ -66,6 +66,7 @@ public class EnemyAI : MonoBehaviour
             currIndex = 0;
             foreach (Skill skill in skillList)
             {
+                if (thing.dead) break;
                 while (skill.range != 0 && Vector3.Distance(transform.position, Player.Instance.transform.position) > skill.range)
                 {
                     thing.targetPos = Player.Instance.transform.position;

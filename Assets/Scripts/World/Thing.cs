@@ -7,6 +7,7 @@ public class Thing : MonoBehaviour
 {
     public bool active;
     public bool dead;
+    public int team;
     public int maxHp;
     public int hp;
     public int shield;

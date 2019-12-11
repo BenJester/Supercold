@@ -261,11 +261,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagePlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 5159956619158121186, guid: 97e292536cbad9844988fd7ab0b8ee12,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5159956619158121187, guid: 97e292536cbad9844988fd7ab0b8ee12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -904,7 +899,7 @@ PrefabInstance:
     - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: maxHp
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
         type: 3}
@@ -914,6 +909,11 @@ PrefabInstance:
     - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7764294623874025224, guid: 198ac884f336342479b750bde4596677,
@@ -1710,7 +1710,12 @@ PrefabInstance:
     - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: maxHp
-      value: 30
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: team
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198ac884f336342479b750bde4596677, type: 3}

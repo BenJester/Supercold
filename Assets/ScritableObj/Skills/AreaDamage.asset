@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 3
   skillName: "\u8303\u56F4\u653B\u51FB"
-  detail: "\u5BF9\u8303\u56F4\u5185\u654C\u4EBA\u9020\u6210 1 \u70B9\u4F24\u5BB3"
+  detail: "\u5BF9\u8303\u56F4\u5185\u654C\u4EBA\u9020\u6210 dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cost: 0
   range: 0
@@ -24,6 +24,7 @@ MonoBehaviour:
   active: 0
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
+  useReletivePos: 0
   radius: 250
   delay: 0.8
   bulletSprite: {fileID: 0}

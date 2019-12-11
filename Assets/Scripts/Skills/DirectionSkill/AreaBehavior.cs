@@ -45,7 +45,7 @@ public class AreaBehavior : MonoBehaviour
         foreach (Collider2D col in cols)
         {
             Thing thing = col.GetComponent<Thing>();
-            if (thing != null && thing != owner)
+            if (thing != null && thing.team != owner.team)
             {
                 thing.TakeDamage(damage, owner);
             }
