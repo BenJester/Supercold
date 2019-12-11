@@ -9,21 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c629a9d7cb70f2848b2fd100d703cdb0, type: 3}
-  m_Name: Dash
+  m_Script: {fileID: 11500000, guid: 6300f5199e9072047a5e5709fbf54d92, type: 3}
+  m_Name: TemporaryShield
   m_EditorClassIdentifier: 
-  skillType: 3
-  skillName: "\u51B2\u523A"
-  detail: "\u5411\u76EE\u6807\u65B9\u5411\u51B2\u523A\u4E00\u6BB5\u8DDD\u79BB"
+  skillType: 1
+  skillName: "\u9B54\u6CD5\u76FE"
+  detail: "\u83B7\u5F97 3 \u70B9\u62A4\u7532\uFF0C\u6301\u7EED 2 \u79D2"
   sprite: {fileID: 0}
   cost: 0
-  range: 240
+  range: 0
   damage: 0
-  preCastTime: 0.02
-  postCastTime: 0.08
+  preCastTime: 0.2
+  postCastTime: 0.05
   active: 0
   owner: {fileID: 0}
-  targetPos: {x: 0, y: 0}
-  useReletivePos: 1
-  dashSpeed: 3000
-  duration: 0.08
+  gainBuff: {fileID: 11400000, guid: 071f169489233cf40b7742926276fe2e, type: 2}

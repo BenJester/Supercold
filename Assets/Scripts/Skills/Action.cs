@@ -50,7 +50,10 @@ public class Action
         actionType = ActionType.DirectionSkill;
         this.owner = owner;
         directionSkill = skill;
-        targetPos = pos;
+        if (skill.useReletivePos)
+            targetPos = ((Vector3)pos - owner.transform.position).normalized;
+        else
+            targetPos = pos;
         actionName = skill.skillName;
     }
 

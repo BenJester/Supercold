@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 1
   skillName: "\u805A\u6C14"
-  detail: "\u84C4\u529B\u540E\u589E\u52A0 1 \u70B9\u529B\u91CF\uFF0C\u6301\u7EED 5
-    \u79D2"
+  detail: "\u84C4\u529B\u540E\u589E\u52A0 1 \u70B9\u529B\u91CF"
   sprite: {fileID: 0}
   cost: 0
   range: 0

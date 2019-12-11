@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class DirectionSkill : Skill
 {
     public Vector2 targetPos;
+    public bool useReletivePos;
 
     public override void OnKey()
     {

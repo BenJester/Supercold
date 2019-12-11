@@ -31,6 +31,7 @@ public class Thing : MonoBehaviour
 
     public Action lastCastAction;
     public Queue<Action> buffer;
+    public Queue<StatsBuff> tmpShieldQueue;
 
     UIBuff buffUI;
     public HPText HPCanvas;
@@ -111,8 +112,9 @@ public class Thing : MonoBehaviour
 
     public void TakeDamage(int damage, Thing owner)
     {
+        if (damage == 0 || dead) return;
         damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
-        if (dead) return;
+        // if tmpShieldQueue
         if (shield > 0)
         {
             int dmgOnShield = Mathf.Min(shield, damage);

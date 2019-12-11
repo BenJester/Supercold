@@ -19,11 +19,11 @@ MonoBehaviour:
   cost: 0
   range: 0
   damage: 1
-  preCastTime: 0.25
+  preCastTime: 0.4
   postCastTime: 0
   active: 0
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
   radius: 250
-  delay: 0.9
+  delay: 0.8
   bulletSprite: {fileID: 0}

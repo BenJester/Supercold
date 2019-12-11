@@ -6094,6 +6094,7 @@ GameObject:
   - component: {fileID: 1745288098}
   - component: {fileID: 1865957218551925941}
   - component: {fileID: 2077673151}
+  - component: {fileID: 722812673}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -6133,21 +6134,24 @@ MonoBehaviour:
   thing: {fileID: 0}
   handMaxNum: 6
   Deck:
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: eb12ba2516f2a3b43b599054bf30f48f, type: 2}
   - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
   - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
-  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
+  - {fileID: 11400000, guid: d098a334fa1f8334d89c8ee1db488ffc, type: 2}
   - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
   - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
-  - {fileID: 11400000, guid: e378cfb9e9d640847a449b3c01bc24f0, type: 2}
-  - {fileID: 11400000, guid: e378cfb9e9d640847a449b3c01bc24f0, type: 2}
-  - {fileID: 11400000, guid: 8950b795476ddff43a2f7da710840379, type: 2}
+  - {fileID: 11400000, guid: 8491cb17a39dcae4599e1922835acbbe, type: 2}
+  - {fileID: 11400000, guid: eb12ba2516f2a3b43b599054bf30f48f, type: 2}
+  - {fileID: 11400000, guid: 8675bcc050c0eec408f0b36d4cba7eeb, type: 2}
   - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
   - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
+  - {fileID: 11400000, guid: 8675bcc050c0eec408f0b36d4cba7eeb, type: 2}
+  - {fileID: 11400000, guid: 8675bcc050c0eec408f0b36d4cba7eeb, type: 2}
+  - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
   Discard: []
   Hand: []
-  Reload: {fileID: 11400000, guid: fdd957ddec4a29e48bc3bbf758f5ca2b, type: 2}
+  Reload: {fileID: 11400000, guid: 63ebfe29d03a38b408997530890e2174, type: 2}
   Empty: {fileID: 11400000, guid: 0cd684f2a58ce2740a2f1c1a5cca8ac7, type: 2}
   targetPosCountdown: {fileID: 1453668721}
   maxMana: 0
@@ -6172,7 +6176,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &1745288097
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6255,7 +6259,9 @@ MonoBehaviour:
   maxHp: 15
   hp: 15
   shield: 0
-  speed: 400
+  rawSpeed: 400
+  speedMultiplier: 1
+  speed: 0
   targetPos: {x: 0, y: 0}
   buffList:
   - {fileID: 11400000, guid: 710bb8f4effcfdf469887d2c5e4577e7, type: 2}
@@ -6263,8 +6269,10 @@ MonoBehaviour:
   snapDistance: 5
   canMove: 1
   canCast: 1
+  stunned: 0
   particle: {fileID: 0}
   body: {fileID: 0}
+  HPCanvas: {fileID: 0}
 --- !u!114 &2077673151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6278,3 +6286,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castParticle: {fileID: 1431430253}
+--- !u!120 &722812673
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159956619158121186}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 100, y: 100, z: 0}
+  - {x: 0, y: 0, z: 0}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 3
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 0.047058824}
+      key1: {r: 1, g: 1, b: 1, a: 0.0627451}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0

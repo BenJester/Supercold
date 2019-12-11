@@ -31,9 +31,16 @@ public class EnemyAI : MonoBehaviour
         }
         else if (skill.GetType().IsSubclassOf(typeof(DirectionSkill)))
         {
-            Action action = new Action(thing, (DirectionSkill) skill, Player.Instance.transform.position);
+            Action action = new Action(thing, (DirectionSkill) skill, PredictPosition(Player.Instance.thing, skill));
             action.CastTimeDo();
         }
+    }
+
+    Vector3 PredictPosition(Thing thing, Skill skill)
+    {
+        return thing.transform.position + Random.Range(0.8f, 1.2f) * thing.speed * (thing.canMove ? 1f : 0.1f) *
+            ((Vector3)thing.targetPos - thing.transform.position).normalized 
+            * (skill.preCastTime + skill.postCastTime);
     }
 
     IEnumerator Attack()

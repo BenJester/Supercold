@@ -25,7 +25,7 @@ MonoBehaviour:
   active: 0
   owner: {fileID: 0}
   target: {fileID: 0}
-  travelSpeed: 600
+  travelSpeed: 2000
   bulletSprite: {fileID: 0}
   num: 1
   interval: 0.2
