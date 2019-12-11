@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &270917896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MagePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159956619158121186, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159956619158121187, guid: 97e292536cbad9844988fd7ab0b8ee12,
         type: 3}
@@ -402,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &629117931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -531,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &953511473
 Rigidbody2D:
   serializedVersion: 4
@@ -660,7 +665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1179920580
 Rigidbody2D:
   serializedVersion: 4
@@ -846,7 +851,7 @@ PrefabInstance:
     - target: {fileID: 5289204311261301099, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: skillList.Array.size
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5289204311261301099, guid: 198ac884f336342479b750bde4596677,
         type: 3}
@@ -890,10 +895,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a3c0432afbebf26458c26594839fcd85,
         type: 2}
+    - target: {fileID: 5289204311261301099, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: skillList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 64c6112a44a26224396e2d47ed4eceeb,
+        type: 2}
     - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: maxHp
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: rawSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289204311261301094, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764294623874025224, guid: 198ac884f336342479b750bde4596677,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 198ac884f336342479b750bde4596677, type: 3}
@@ -1075,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2026731136
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1557,7 +1583,7 @@ PrefabInstance:
     - target: {fileID: 5726131559282400859, guid: 198ac884f336342479b750bde4596677,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4072501511943261727, guid: 198ac884f336342479b750bde4596677,
         type: 3}

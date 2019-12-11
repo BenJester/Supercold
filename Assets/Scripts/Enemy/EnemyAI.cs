@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public float attackInteval;
     Thing thing;
     bool init;
+    public bool ready;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class EnemyAI : MonoBehaviour
             Action action = new Action(thing, (DirectionSkill) skill, PredictPosition(Player.Instance.thing, skill));
             action.CastTimeDo();
         }
+        ready = true;
     }
 
     Vector3 PredictPosition(Thing thing, Skill skill)
@@ -49,7 +51,13 @@ public class EnemyAI : MonoBehaviour
         {
             foreach (Skill skill in skillList)
             {
+                while (skill.range != 0 && Vector3.Distance(transform.position, Player.Instance.transform.position) > skill.range)
+                {
+                    thing.targetPos = Player.Instance.transform.position;
+                    yield return new WaitForEndOfFrame();
+                }
                 DoSkill(skill);
+                
                 yield return new WaitForSeconds(attackInteval);
             }
         }

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbfa7cc8bd91695418a67ba93f3bf4b8, type: 3}
+  m_Name: MeleeAreaSkill
+  m_EditorClassIdentifier: 
+  skillType: 3
+  skillName: "\u91CD\u51FB"
+  detail: This is a card
+  sprite: {fileID: 0}
+  cost: 0
+  range: 160
+  damage: 1
+  preCastTime: 0.05
+  postCastTime: 0.05
+  active: 0
+  owner: {fileID: 0}
+  targetPos: {x: 0, y: 0}
+  useReletivePos: 0
+  radius: 130
+  delay: 0.35
+  bulletSprite: {fileID: 0}
