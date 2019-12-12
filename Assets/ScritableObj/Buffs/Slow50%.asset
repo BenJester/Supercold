@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c3df490a6219a4dbbdea09d768d42f, type: 3}
   m_Name: Slow50%
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u51CF\u901F"
   detail: "\u51CF\u901F 70%"
   duration: 1

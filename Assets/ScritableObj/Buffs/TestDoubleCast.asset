@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c0874658f1b104b8530f5cf9f65081, type: 3}
   m_Name: TestDoubleCast
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u53CC\u91CD\u65BD\u6CD5"
   detail: This is a buff
   duration: -1

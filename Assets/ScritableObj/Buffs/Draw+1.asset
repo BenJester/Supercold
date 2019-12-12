@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6b857c502079d45bc98440d65beb2f, type: 3}
   m_Name: Draw+1
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u62BD\u724C"
   detail: This is a buff
   duration: -1

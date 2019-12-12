@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d5e675f1014340ae2271a85f002fc, type: 3}
   m_Name: Stunned
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u7729\u6655"
   detail: This is a buff
   duration: 2

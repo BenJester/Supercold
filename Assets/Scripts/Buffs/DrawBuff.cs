@@ -10,6 +10,6 @@ public class DrawBuff : Buff
     {
         if (owner == Player.Instance.thing)
             Player.Instance.DrawCard(drawNum);
-        RemoveFromList();
+        Deactivate();
     }
 }

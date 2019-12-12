@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c3df490a6219a4dbbdea09d768d42f, type: 3}
   m_Name: Strength+1
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u529B\u91CF"
   detail: "\u529B\u91CF + 1"
   duration: -1
@@ -19,3 +20,4 @@ MonoBehaviour:
   owner: {fileID: 0}
   strength: 1
   speedPercentage: 0
+  shield: 0

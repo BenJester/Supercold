@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c3df490a6219a4dbbdea09d768d42f, type: 3}
   m_Name: Haste
   m_EditorClassIdentifier: 
+  active: 1
   buffName: "\u6025\u901F"
   detail: "\u79FB\u52A8\u901F\u5EA6 +500%"
   duration: 0.2
@@ -19,3 +20,4 @@ MonoBehaviour:
   owner: {fileID: 0}
   strength: 0
   speedPercentage: 5
+  shield: 0

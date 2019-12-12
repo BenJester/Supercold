@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Buff : ScriptableObject
 {
+    
+    public bool active = true;
     public string buffName = "New Buff";
     public string detail = "This is a buff";
     public float duration = -1f;
@@ -25,10 +27,9 @@ public abstract class Buff : ScriptableObject
     {
     }
 
-    public void RemoveFromList()
+    public void Deactivate()
     {
-        //TODO
-        //owner.buffList.Remove(this);
+        active = false;
     }
 
     public virtual void End()
@@ -48,7 +49,7 @@ public abstract class Buff : ScriptableObject
         {
             End();
             currDuration = -1f;
-            RemoveFromList();
+            Deactivate();
         }
         else
             currDuration -= Time.fixedDeltaTime;
