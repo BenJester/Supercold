@@ -120,7 +120,14 @@ public class BulletBehavior : MonoBehaviour
     {
         Thing colThing = col.GetComponent<Thing>();
         if (colThing && colThing.team == owner.team) return;
-        OnHit(colThing);
+        if (bulletType == bulletType.Lock && colThing == target.GetComponent<Thing>())
+        {
+            OnHit(colThing);
+        }
+        else if (bulletType == bulletType.Direction)
+        {
+            OnHit(colThing);
+        }
     }
 
     void OnHit(Thing thing)

@@ -25,5 +25,5 @@ MonoBehaviour:
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
   useReletivePos: 0
-  travelSpeed: 1350
+  travelSpeed: 1150
   bulletSprite: {fileID: 0}
