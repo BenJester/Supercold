@@ -73,7 +73,7 @@ public abstract class Skill : ScriptableObject
             
         }
         
-        while (!owner.CheckStackableBool<StunnedBuff>())
+        while (owner.CheckStackableBool<StunnedBuff>())
             yield return new WaitForEndOfFrame();
         
         owner.NextInBuffer();

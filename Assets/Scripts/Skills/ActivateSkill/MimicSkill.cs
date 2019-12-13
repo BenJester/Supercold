@@ -8,7 +8,7 @@ public class MimicSkill : ActivateSkill
     public int num;
     public override void Do()
     {
-        if (owner == Player.Instance.thing)
+        if (owner == Player.Instance.thing && owner.lastCastAction != null)
         {
             for (int i = 0; i < num; i ++)
             {
