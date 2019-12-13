@@ -18,7 +18,7 @@ MonoBehaviour:
     dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   range: 0
-  damage: 2
+  damage: 1
   gainBuff: {fileID: 0}
   preCastTime: 0.1
   postCastTime: 0
