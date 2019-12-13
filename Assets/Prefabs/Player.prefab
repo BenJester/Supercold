@@ -6138,7 +6138,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2075a012e3613bc40a9aac5dd6e52c27, type: 2}
   - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
   - {fileID: 11400000, guid: 9c59c6ed687699644905a5cf1ad1d57b, type: 2}
-  - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
+  - {fileID: 11400000, guid: b306ce56dde6ed742ac27eb2184b589c, type: 2}
   - {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094, type: 2}
   - {fileID: 11400000, guid: f8450e6436282eb499b1f283598605bc, type: 2}
   - {fileID: 11400000, guid: 8491cb17a39dcae4599e1922835acbbe, type: 2}
@@ -6258,8 +6258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   dead: 0
-  maxHp: 15
-  hp: 15
+  team: 0
+  maxHp: 20
+  hp: 0
   shield: 0
   rawSpeed: 400
   speedMultiplier: 1

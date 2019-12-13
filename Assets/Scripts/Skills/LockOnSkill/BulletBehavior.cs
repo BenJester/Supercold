@@ -119,7 +119,7 @@ public class BulletBehavior : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Thing colThing = col.GetComponent<Thing>();
-        if (colThing && colThing.team == owner.team) return;
+        if (colThing == null || colThing.team == owner.team) return;
         if (bulletType == bulletType.Lock && colThing == target.GetComponent<Thing>())
         {
             OnHit(colThing);

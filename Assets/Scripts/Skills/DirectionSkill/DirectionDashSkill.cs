@@ -25,10 +25,27 @@ public class DirectionDashSkill : DirectionSkill
         while (timer < duration)
         {
             owner.body.MovePosition(owner.body.position + relativeDir * dashSpeed * Time.fixedDeltaTime);
+            Scan();
             yield return new WaitForEndOfFrame();
             timer += Time.fixedDeltaTime;
         }
         owner.canMove = true;
         owner.targetPos = targetPos;
+    }
+
+    void Scan()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius, Utility.Instance.thingLayer);
+        foreach (Collider2D col in cols)
+        {
+            Thing thing = col.GetComponent<Thing>();
+            if (thing != null && thing.team != owner.team && !hitList.Contains(thing))
+            {
+                thing.TakeDamage(damage, owner);
+                if (gainBuff != null)
+                    thing.AddBuff(Instantiate(gainBuff));
+                hitList.Add(thing);
+            }
+        }
     }
 }

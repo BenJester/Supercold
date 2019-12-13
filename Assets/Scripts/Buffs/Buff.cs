@@ -13,7 +13,8 @@ public abstract class Buff : ScriptableObject
     public float currDuration;
     [HideInInspector]
     public Thing owner;
-    
+    //public Skill skill;
+
     public abstract void Do(Action action = null);
 
     public void Init(Thing thing)

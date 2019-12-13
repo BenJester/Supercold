@@ -24,6 +24,8 @@ public abstract class Skill : ScriptableObject
     protected Rigidbody2D rb;
     [HideInInspector]
     public Thing owner;
+    [HideInInspector]
+    protected List<Thing> hitList = new List<Thing>();
     Action action;
     public abstract void Do();
     public abstract void OnKey();
@@ -52,13 +54,14 @@ public abstract class Skill : ScriptableObject
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
-
+        if (isCard() && owner == Player.Instance.thing)
+            Player.Instance.BroadcastPlayCard(owner.lastCastAction);
         owner.HPCanvas.ShowCastTimeBar(preCastTime + postCastTime);
 
         owner.canMove = false;
         owner.canCast = false;
         yield return new WaitForSeconds(preCastTime);
-
+        
         owner.particle.PauseCastParticle();
         if (!owner.stunned)
         {
@@ -66,12 +69,12 @@ public abstract class Skill : ScriptableObject
             yield return new WaitForSeconds(postCastTime);
             owner.canMove = true;
             owner.canCast = true;
-            if (isCard() && owner == Player.Instance.thing)
-                Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+            
         }
         
         while (owner.stunned)
             yield return new WaitForEndOfFrame();
+        
         owner.NextInBuffer();
     }
 

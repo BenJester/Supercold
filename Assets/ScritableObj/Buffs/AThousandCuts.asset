@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cbb9b7b6e034c40bb9175d68317a98, type: 3}
+  m_Name: AThousandCuts
+  m_EditorClassIdentifier: 
+  active: 1
+  buffName: "\u5251\u96E8"
+  detail: "\u6BCF\u65BD\u653E 1 \u4E2A\u6280\u80FD\uFF0C\u5BF9\u5468\u56F4\u654C\u4EBA\u9020\u6210
+    1 \u70B9\u4F24\u5BB3"
+  duration: -1
+  currDuration: 0
+  owner: {fileID: 0}
+  x: 1
+  count: 0
+  gainBuff: {fileID: 0}
+  activateSkill: {fileID: 11400000, guid: 94d2cb60cd472ce4a8f50c5457fed425, type: 2}
+  castDelay: 0

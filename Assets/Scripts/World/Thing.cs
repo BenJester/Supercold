@@ -26,7 +26,7 @@ public class Thing : MonoBehaviour
     public bool stunned = false;
     public ThingParticle particle;
 
-    CircleCollider2D col;
+    public CircleCollider2D col;
     public Rigidbody2D body;
     SpriteRenderer sprite;
 

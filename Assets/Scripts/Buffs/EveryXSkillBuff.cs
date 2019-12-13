@@ -20,7 +20,7 @@ public abstract class EveryXSkillBuff : Buff
         return count;
     }
 
-    void UpdateCount(Action action)
+    protected void UpdateCount(Action action)
     {
         lastCastAction = action;
         count += 1;
