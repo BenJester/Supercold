@@ -25,5 +25,5 @@ MonoBehaviour:
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
   useReletivePos: 0
-  dashSpeed: 2000
+  dashSpeed: 2300
   duration: 0.08

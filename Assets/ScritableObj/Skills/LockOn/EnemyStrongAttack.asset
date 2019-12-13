@@ -13,19 +13,18 @@ MonoBehaviour:
   m_Name: EnemyStrongAttack
   m_EditorClassIdentifier: 
   skillType: 0
-  skillName: New SKill
-  detail: This is a card
+  skillName: "\u8FFD\u8E2A\u5F39"
+  detail: "\u671D\u76EE\u6807\u53D1\u5C04\u4E00\u679A\u5B50\u5F39\uFF0C\u9020\u6210
+    1 \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
-  cost: 0
   range: 0
   damage: 1
+  gainBuff: {fileID: 0}
   preCastTime: 0
   postCastTime: 0
-  active: 0
   owner: {fileID: 0}
   target: {fileID: 0}
   travelSpeed: 180
   bulletSprite: {fileID: 0}
   num: 1
   interval: 1
-  gainBuff: {fileID: 0}
