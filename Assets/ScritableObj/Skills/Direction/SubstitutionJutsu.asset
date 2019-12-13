@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537cd4803dcb4d5419b859b8d5d8e244, type: 3}
+  m_Name: SubstitutionJutsu
+  m_EditorClassIdentifier: 
+  skillType: 3
+  skillName: "\u66FF\u8EAB\u672F"
+  detail: "\u65E0\u654C 0.5 \u79D2\uFF0C\u5982\u679C\u671F\u95F4\u88AB\u51FB\u4E2D\uFF0C\u77AC\u79FB\u81F3\u76EE\u6807\u4F4D\u7F6E"
+  sprite: {fileID: 0}
+  range: 0
+  damage: 0
+  gainBuff: {fileID: 11400000, guid: 70715f1dfabe39c41abcf2160289ac21, type: 2}
+  preCastTime: 0
+  postCastTime: 0.5
+  owner: {fileID: 0}
+  targetPos: {x: 0, y: 0}
+  useReletivePos: 0
+  onHitBuff: {fileID: 11400000, guid: 6cd0d3f5b7c423d42b6967e38d9328c2, type: 2}

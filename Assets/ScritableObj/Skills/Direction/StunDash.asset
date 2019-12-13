@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 3
   skillName: "\u8E0F\u524D\u65A9"
-  detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210 dmg
-    \u70B9\u4F24\u5BB3\u548C 1 \u79D2\u7729\u6655"
+  detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210 1 \u79D2\u7729\u6655"
   sprite: {fileID: 0}
-  range: 160
-  damage: 1
+  range: 184
+  damage: 0
   gainBuff: {fileID: 11400000, guid: 3396f7b982ebd384b98888b6f1c8f0e6, type: 2}
   preCastTime: 0.02
   postCastTime: 0.08

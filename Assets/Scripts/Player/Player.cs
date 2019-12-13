@@ -72,8 +72,7 @@ public class Player : MonoBehaviour
 
     public void BroadcastPlayCard(Action action)
     {
-        if (OnPlayCard != null)
-            OnPlayCard(action);
+        OnPlayCard?.Invoke(action);
     }
 
     void InitHand()

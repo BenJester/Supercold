@@ -63,7 +63,7 @@ public abstract class Skill : ScriptableObject
         yield return new WaitForSeconds(preCastTime);
         
         owner.particle.PauseCastParticle();
-        if (!owner.stunned)
+        if (!owner.CheckStackableBool<StunnedBuff>())
         {
             Do();
             yield return new WaitForSeconds(postCastTime);
@@ -72,7 +72,7 @@ public abstract class Skill : ScriptableObject
             
         }
         
-        while (owner.stunned)
+        while (!owner.CheckStackableBool<StunnedBuff>())
             yield return new WaitForEndOfFrame();
         
         owner.NextInBuffer();

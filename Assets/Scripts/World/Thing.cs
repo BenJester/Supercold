@@ -11,6 +11,7 @@ public class Thing : MonoBehaviour
     public int maxHp;
     public int hp;
     public int shield;
+    public bool invinsible;
 
     public float rawSpeed;
     public float speedMultiplier = 1f;
@@ -40,6 +41,9 @@ public class Thing : MonoBehaviour
 
     public delegate void LoseHP(int lossHP);
     public event LoseHP OnLoseHP;
+
+    public delegate void GetHit(Thing attacker);
+    public event GetHit OnGetHit;
 
     void Start()
     {
@@ -116,7 +120,9 @@ public class Thing : MonoBehaviour
 
     public void TakeDamage(int damage, Thing owner)
     {
-        if (damage == 0 || dead) return;
+        if (dead) return;
+        OnGetHit?.Invoke(owner);
+        if (damage == 0 || !owner.CheckStackableBool<InvinsibleBuff>()) return;
         damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
         // if tmpShieldQueue
         if (shield > 0)
@@ -128,9 +134,19 @@ public class Thing : MonoBehaviour
             
         hp -= damage;
         if (damage > 0)
-            OnLoseHP.Invoke(damage);
+            OnLoseHP?.Invoke(damage);
         if (hp <= 0)
             Die();
+    }
+
+    public bool CheckStackableBool<T>()
+    {
+        foreach (Buff buff in buffList)
+        {
+            if (buff.GetType() == typeof(T) && buff.active)
+                return true;
+        }
+        return false;
     }
 
     public void Die()
@@ -142,6 +158,7 @@ public class Thing : MonoBehaviour
 
     public void AddBuff(Buff buff)
     {
+        buff = Instantiate(buff);
         buffList.Add(buff);
         buff.Init(this);
         buff.Do();

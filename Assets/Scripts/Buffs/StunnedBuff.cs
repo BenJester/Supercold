@@ -7,7 +7,6 @@ public class StunnedBuff : Buff
 {
     public override void Do(Action action = null)
     {
-        owner.stunned = true;
         owner.canCast = false;
         owner.canMove = false;
         owner.HPCanvas.ShowDebuffTimeBar(duration, this);
@@ -21,7 +20,6 @@ public class StunnedBuff : Buff
                 return;
         }
         owner.HPCanvas.HideDebuffTimeBar();
-        owner.stunned = false;
         owner.canCast = true;
         owner.canMove = true;
     }
