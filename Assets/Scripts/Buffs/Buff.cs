@@ -13,6 +13,7 @@ public abstract class Buff : ScriptableObject
     public float currDuration;
     [HideInInspector]
     public Thing owner;
+    [HideInInspector]
     public DirectionSkill gainDirectionSkill;
 
     public abstract void Do(Action action = null);

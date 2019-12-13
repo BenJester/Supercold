@@ -7,6 +7,8 @@ public class DirectionDashSkill : DirectionSkill
 {
     public float dashSpeed;
     public float duration;
+    public bool scanBullets;
+    public float deflectBulletSpeed;
     Vector2 relativeDir;
 
     public override void Do()
@@ -26,6 +28,8 @@ public class DirectionDashSkill : DirectionSkill
         {
             owner.body.MovePosition(owner.body.position + relativeDir * dashSpeed * Time.fixedDeltaTime);
             Scan();
+            if (scanBullets)
+                ScanBullets();
             yield return new WaitForEndOfFrame();
             timer += Time.fixedDeltaTime;
         }
@@ -35,7 +39,7 @@ public class DirectionDashSkill : DirectionSkill
 
     void Scan()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius, Utility.Instance.thingLayer);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 2f, Utility.Instance.thingLayer);
         foreach (Collider2D col in cols)
         {
             Thing thing = col.GetComponent<Thing>();
@@ -45,6 +49,29 @@ public class DirectionDashSkill : DirectionSkill
                 if (gainBuff != null)
                     thing.AddBuff(Instantiate(gainBuff));
                 hitList.Add(thing);
+            }
+        }
+    }
+
+    void ScanBullets()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 2f, Utility.Instance.bulletLayer);
+        bool hit = false;
+        foreach (Collider2D col in cols)
+        {
+            BulletBehavior bulletBehavior = col.GetComponent<BulletBehavior>();
+            if (bulletBehavior != null && bulletBehavior.owner.team != owner.team)
+            {
+                bulletBehavior.bulletType = bulletType.Lock;
+                bulletBehavior.travelSpeed = deflectBulletSpeed;
+                bulletBehavior.target = bulletBehavior.owner.gameObject;
+                bulletBehavior.owner = owner;
+                if (!hit && gainBuff != null)
+                {
+                    owner.AddBuff(gainBuff);
+                    hit = true;
+                }
+                    
             }
         }
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   skillType: 3
   skillName: "\u51B2\u523A"
   detail: "\u5411\u76EE\u6807\u65B9\u5411\u51B2\u523A\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210
-    1 \u70B9\u4F24\u5BB3"
+    dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   range: 320
   damage: 1
@@ -27,3 +27,5 @@ MonoBehaviour:
   useReletivePos: 1
   dashSpeed: 4000
   duration: 0.08
+  scanBullets: 0
+  deflectBulletSpeed: 0

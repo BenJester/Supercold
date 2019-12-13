@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
 
     public Skill GetNextSkill()
     {
-        return skillList[currIndex + 1 < skillList.Count ? currIndex + 1 : 0];
+        return skillList[currIndex < skillList.Count ? currIndex : 0];
     }
 
     void DoSkill(Skill skill)
@@ -73,8 +73,10 @@ public class EnemyAI : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
                 DoSkill(skill);
+                yield return new WaitForSeconds(skill.preCastTime);
                 currIndex += 1;
                 yield return new WaitForSeconds(attackInteval);
+                
             }
         }
     }

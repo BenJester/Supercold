@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c629a9d7cb70f2848b2fd100d703cdb0, type: 3}
-  m_Name: StunDash
+  m_Name: DeflectDash
   m_EditorClassIdentifier: 
   skillType: 3
-  skillName: "\u8E0F\u524D\u65A9"
-  detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210 1.25
-    \u79D2\u7729\u6655"
+  skillName: "\u89C1\u5207"
+  detail: "\u51B2\u523A\uFF0C\u5F39\u53CD\u8DEF\u5F84\u4E0A\u5B50\u5F39\u3002\u6210\u529F\u5F39\u53CD\u65F6\u62BD
+    1 \u5F20\u724C"
   sprite: {fileID: 0}
-  range: 184
+  range: 240
   damage: 0
-  gainBuff: {fileID: 11400000, guid: 0594447615f58c84286c810cdc32fc66, type: 2}
-  preCastTime: 0.02
+  gainBuff: {fileID: 11400000, guid: 35c17fb544b5c0745b126c218f610d63, type: 2}
+  preCastTime: 0
   postCastTime: 0.08
   owner: {fileID: 0}
   targetPos: {x: 0, y: 0}
   useReletivePos: 0
-  dashSpeed: 2300
+  dashSpeed: 3000
   duration: 0.08
-  scanBullets: 0
-  deflectBulletSpeed: 0
+  scanBullets: 1
+  deflectBulletSpeed: 3000
