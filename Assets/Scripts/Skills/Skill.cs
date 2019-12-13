@@ -47,10 +47,7 @@ public abstract class Skill : ScriptableObject
 
     public IEnumerator CastTime()
     {
-        if (isCard())
-        {
-            owner.lastCastAction = action;
-        }
+        
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
@@ -66,6 +63,10 @@ public abstract class Skill : ScriptableObject
         if (!owner.CheckStackableBool<StunnedBuff>())
         {
             Do();
+            if (isCard())
+            {
+                owner.lastCastAction = action;
+            }
             yield return new WaitForSeconds(postCastTime);
             owner.canMove = true;
             owner.canCast = true;

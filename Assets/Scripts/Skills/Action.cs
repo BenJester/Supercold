@@ -16,6 +16,7 @@ public class Action
     public ActivateSkill activateSkill;
     public LockOnSkill lockOnSkill;
     public DirectionSkill directionSkill;
+    public Skill skill;
     public string actionName;
     // movement
     public Action(Thing owner, Vector2 targetPos)
@@ -31,6 +32,7 @@ public class Action
         actionType = ActionType.ActivateSkill;
         this.owner = owner;
         activateSkill = skill;
+        this.skill = skill;
         actionName = skill.skillName;
     }
 
@@ -41,6 +43,7 @@ public class Action
         this.owner = owner;
         lockOnSkill = skill;
         this.target = target;
+        this.skill = skill;
         actionName = skill.skillName;
     }
 
@@ -50,6 +53,7 @@ public class Action
         actionType = ActionType.DirectionSkill;
         this.owner = owner;
         directionSkill = skill;
+        this.skill = skill;
         if (skill.useReletivePos)
             targetPos = ((Vector3)pos - owner.transform.position).normalized;
         else

@@ -1741,6 +1741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
         type: 3}
+      propertyPath: Deck.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
       propertyPath: Deck.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 3677ffea36b4d664f9253bb4ef75dc0d,
@@ -1822,6 +1827,30 @@ PrefabInstance:
       propertyPath: Deck.Array.data[16]
       value: 
       objectReference: {fileID: 11400000, guid: 17ca4c1823057fc48835394dd5e81094,
+        type: 2}
+    - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: Deck.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 62b46212efe1a8d46a40339e02faa797,
+        type: 2}
+    - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: Deck.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 62b46212efe1a8d46a40339e02faa797,
+        type: 2}
+    - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: Deck.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: 62b46212efe1a8d46a40339e02faa797,
+        type: 2}
+    - target: {fileID: 1556450607640316042, guid: 97e292536cbad9844988fd7ab0b8ee12,
+        type: 3}
+      propertyPath: Deck.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: 62b46212efe1a8d46a40339e02faa797,
         type: 2}
     - target: {fileID: 1865957218551925941, guid: 97e292536cbad9844988fd7ab0b8ee12,
         type: 3}
