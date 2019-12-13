@@ -18,6 +18,6 @@ MonoBehaviour:
   duration: 0.2
   currDuration: -1
   owner: {fileID: 0}
-  gainDirectionSkill: {fileID: 11400000, guid: 534485ba4f65ff841b1cf46b2d68be37, type: 2}
-  targetPos: {x: -241.04779, y: -53.94882}
+  gainDirectionSkill: {fileID: 11400000, guid: dd613b4f871149e4ba2600236dffef89, type: 2}
+  targetPos: {x: -340.04666, y: 23.915468}
   oneTime: 1
