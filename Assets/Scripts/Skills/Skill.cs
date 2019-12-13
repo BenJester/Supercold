@@ -47,7 +47,8 @@ public abstract class Skill : ScriptableObject
 
     public IEnumerator CastTime()
     {
-        
+        while (owner.CheckStackableBool<StunnedBuff>())
+            yield return new WaitForEndOfFrame();
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
