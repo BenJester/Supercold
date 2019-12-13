@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76695e5fedc318242a0beebbeec73748, type: 3}
   m_Name: Invinsible0.5s
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   buffName: "\u65E0\u654C"
   detail: "\u65E0\u654C\uFF0C\u6301\u7EED dur \u79D2"
-  duration: 0.5
-  currDuration: 0.10712559
+  duration: 0.2
+  currDuration: -1
   owner: {fileID: 0}
   gainDirectionSkill: {fileID: 0}

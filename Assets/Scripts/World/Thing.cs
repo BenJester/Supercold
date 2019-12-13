@@ -122,7 +122,7 @@ public class Thing : MonoBehaviour
     {
         if (dead) return;
         OnGetHit?.Invoke(owner);
-        if (damage == 0 || !owner.CheckStackableBool<InvinsibleBuff>()) return;
+        if (damage == 0 || CheckStackableBool<InvinsibleBuff>()) return;
         damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
         // if tmpShieldQueue
         if (shield > 0)

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348fac73d39183046bb859b04586dfbd, type: 3}
   m_Name: GetHitDash
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   buffName: "\u66FF\u8EAB\u672F"
   detail: "\u88AB\u51FB\u4E2D\u65F6\u51B2\u523A"
-  duration: 0.5
-  currDuration: 0.10712559
+  duration: 0.2
+  currDuration: -1
   owner: {fileID: 0}
-  gainDirectionSkill: {fileID: 11400000, guid: e378cfb9e9d640847a449b3c01bc24f0, type: 2}
-  targetPos: {x: 382.97885, y: 257.50833}
+  gainDirectionSkill: {fileID: 11400000, guid: 534485ba4f65ff841b1cf46b2d68be37, type: 2}
+  targetPos: {x: -241.04779, y: -53.94882}
+  oneTime: 1
