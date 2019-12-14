@@ -33,16 +33,25 @@ public abstract class Skill : ScriptableObject
 
     public void Cast()
     {
-
         action = CreateAction();
         OnCastFinish();
+        if (action.skill.GetType() == typeof(Reload) && HasReloadInBuffer()) return;
         if (!owner.canCast)
         {
             owner.buffer.Enqueue(action);
-
             return;
         }
         Utility.Instance.StartCoroutine(CastTime());
+    }
+    
+    bool HasReloadInBuffer()
+    {
+        foreach (var action in owner.buffer)
+        {
+            if (action.skill.GetType() == typeof(Reload))
+                return true;
+        }
+        return false;
     }
 
     public IEnumerator CastTime()
