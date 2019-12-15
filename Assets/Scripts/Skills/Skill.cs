@@ -61,8 +61,7 @@ public abstract class Skill : ScriptableObject
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
-        if (isCard() && owner == Player.Instance.thing)
-            Player.Instance.BroadcastPlayCard(owner.lastCastAction);
+        
         owner.HPCanvas.ShowCastTimeBar(preCastTime + postCastTime);
 
         owner.canMove = false;
@@ -82,7 +81,8 @@ public abstract class Skill : ScriptableObject
             owner.canCast = true;
             
         }
-        
+        if (isCard() && owner == Player.Instance.thing)
+            Player.Instance.BroadcastPlayCard(action);
         while (owner.CheckStackableBool<StunnedBuff>())
             yield return new WaitForEndOfFrame();
         
