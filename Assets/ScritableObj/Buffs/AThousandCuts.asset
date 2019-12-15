@@ -19,8 +19,9 @@ MonoBehaviour:
   duration: -1
   currDuration: 0
   owner: {fileID: 0}
+  gainDirectionSkill: {fileID: 0}
   x: 1
   count: 0
   gainBuff: {fileID: 0}
   activateSkill: {fileID: 11400000, guid: 94d2cb60cd472ce4a8f50c5457fed425, type: 2}
-  castDelay: 0.05
+  castDelay: 0

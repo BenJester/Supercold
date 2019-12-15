@@ -20,7 +20,7 @@ MonoBehaviour:
   damage: 1
   gainBuff: {fileID: 0}
   preCastTime: 0
-  postCastTime: 0.16
+  postCastTime: 0.1
   owner: {fileID: 0}
   radius: 125
-  delay: 0.16
+  delay: 0.1

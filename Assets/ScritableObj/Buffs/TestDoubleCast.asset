@@ -18,6 +18,7 @@ MonoBehaviour:
   duration: -1
   currDuration: 0
   owner: {fileID: 0}
+  gainDirectionSkill: {fileID: 0}
   x: 3
   count: 0
   gainBuff: {fileID: 0}

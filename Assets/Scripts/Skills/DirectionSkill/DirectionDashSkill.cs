@@ -39,7 +39,7 @@ public class DirectionDashSkill : DirectionSkill
 
     void Scan()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 2f, Utility.Instance.thingLayer);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 4f, Utility.Instance.thingLayer);
         foreach (Collider2D col in cols)
         {
             Thing thing = col.GetComponent<Thing>();
@@ -55,7 +55,7 @@ public class DirectionDashSkill : DirectionSkill
 
     void ScanBullets()
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 2f, Utility.Instance.bulletLayer);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(owner.transform.position, owner.col.radius * 4f, Utility.Instance.bulletLayer);
         bool hit = false;
         foreach (Collider2D col in cols)
         {
