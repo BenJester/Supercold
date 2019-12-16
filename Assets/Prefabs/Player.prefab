@@ -6213,8 +6213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acdf2f667b24504bba6d4799ad2ec22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeIndicator: {fileID: 1386117464}
-  radiusIndicator: {fileID: 0}
+  indicator: {fileID: 0}
   thing: {fileID: 0}
   handMaxNum: 6
   Deck:
@@ -6343,7 +6342,7 @@ MonoBehaviour:
   active: 0
   dead: 0
   team: 0
-  maxHp: 20
+  maxHp: 32
   hp: 0
   shield: 0
   invinsible: 0

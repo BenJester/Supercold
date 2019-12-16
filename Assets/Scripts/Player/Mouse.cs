@@ -75,7 +75,7 @@ public class Mouse : MonoBehaviour
                 if (hit)
                 {
                     SelectTarget(lockOnSkill, hit);
-                    mode = MouseMode.Normal;
+                    Reset();
                 }
             }
             if (mode == MouseMode.Direction)
@@ -83,14 +83,19 @@ public class Mouse : MonoBehaviour
                 Vector2 pos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
                 directionSkill.targetPos = pos;
                 directionSkill.Cast();
-                mode = MouseMode.Normal;
+                Reset();
             }
         }
         if (Input.GetMouseButtonDown(1))
         {
-            mode = MouseMode.Normal;
-            indicator.HideCircle();
+            Reset();
         }
+    }
+
+    private void Reset()
+    {
+        mode = MouseMode.Normal;
+        indicator.HideCircle();
     }
 
     void HandleCursorSprite()
