@@ -4,7 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Skills/ActivateSkill/AreaSkill")]
 public class ActivateAreaSkill : ActivateSkill
 {
-    public float radius;
     public float delay;
 
     public override void Do()

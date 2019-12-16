@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   buffName: "\u5251\u96E8"
-  detail: "\u6BCF\u65BD\u653E 1 \u4E2A\u6280\u80FD\uFF0C\u5BF9\u5468\u56F4\u654C\u4EBA\u9020\u6210
-    1 \u70B9\u4F24\u5BB3"
+  detail: "\u6BCF\u65BD\u653E1\u4E2A\u6280\u80FD\uFF0C\u5BF9\u5468\u56F4\u654C\u4EBA\u9020\u62101\u70B9\u4F24\u5BB3"
   duration: -1
   currDuration: 0
   owner: {fileID: 0}

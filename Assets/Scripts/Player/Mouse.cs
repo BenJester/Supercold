@@ -15,12 +15,17 @@ public class Mouse : MonoBehaviour
     private DirectionSkill directionSkill;
     public Texture2D lockCursor;
     public Texture2D normalCursor;
-    public SpriteRenderer rangeIndicator;
+    UIIndicator indicator;
 
     void Awake()
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+    }
+
+    private void Start()
+    {
+        indicator = Player.Instance.indicator;
     }
 
     public void LockOnMouse(LockOnSkill skill)
@@ -84,6 +89,7 @@ public class Mouse : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             mode = MouseMode.Normal;
+            indicator.HideCircle();
         }
     }
 
@@ -93,15 +99,15 @@ public class Mouse : MonoBehaviour
         {
             case MouseMode.Normal:
                 Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
-                rangeIndicator.size = Vector2.zero;
+                
                 break;
             case MouseMode.LockOn:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
-                rangeIndicator.size = new Vector2(lockOnSkill.range * 2f, lockOnSkill.range * 2f);
+                indicator.ShowCircle(lockOnSkill);
                 break;
             case MouseMode.Direction:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
-                rangeIndicator.size = new Vector2(directionSkill.range * 2f, directionSkill.range * 2f);
+                indicator.ShowCircle(directionSkill);
                 break;
             default:
                 break;

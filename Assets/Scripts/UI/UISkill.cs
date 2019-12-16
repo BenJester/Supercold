@@ -8,7 +8,14 @@ public class UISkill : MonoBehaviour
     public Text skillName;
     public Text detail;
     public Text castTime;
+    [HideInInspector]
     public Skill skill;
+    UIIndicator indicator;
+
+    private void Start()
+    {
+        indicator = Player.Instance.indicator;
+    }
 
     public void DisplaySkill(Skill skill)
     {
@@ -29,5 +36,15 @@ public class UISkill : MonoBehaviour
         string res;
         res = str.Replace("dmg", (skill.damage + skill.owner.strength).ToString());
         return res;
+    }
+
+    public void ShowCircle()
+    {
+        indicator.ShowCircle(skill);
+    }
+
+    public void HideCircle()
+    {
+        indicator.HideCircle();
     }
 }

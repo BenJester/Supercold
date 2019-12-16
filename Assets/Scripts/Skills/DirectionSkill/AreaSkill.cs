@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Skills/DirectionSkill/AreaSkill")]
 public class AreaSkill : DirectionSkill
 {
-    public float radius;
     public float delay;
     public Sprite bulletSprite;
 

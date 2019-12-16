@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIBuffPanel : MonoBehaviour
 {
-    public List<Text> buffTextList;
+    public List<UIBuff> buffUIList;
     public Thing thing;
     public GameObject buffTextObj;
     public int maxBuffNum;
@@ -15,8 +15,8 @@ public class UIBuffPanel : MonoBehaviour
         
         for (int i = 0; i < maxBuffNum; i++)
         {
-            Text text = Instantiate(buffTextObj, transform).GetComponent<Text>();
-            buffTextList.Add(text);
+            UIBuff uiBuff = Instantiate(buffTextObj, transform).GetComponent<UIBuff>();
+            buffUIList.Add(uiBuff);
         }
         
     }
@@ -29,13 +29,26 @@ public class UIBuffPanel : MonoBehaviour
         {
             if (thing.buffList[i].active)
             {
-                buffTextList[j].text = thing.buffList[i].buffName + " "
-                    + thing.buffList[i].UINum() + " "
-                    + (thing.buffList[i].currDuration != -1f ? thing.buffList[i].currDuration.ToString("F2") : "");
+                Buff buff = thing.buffList[i];
+                buffUIList[j].shortDetail.text = buff.buffName + " "
+                    + buff.UINum() + " "
+                    + (buff.currDuration != -1f ? buff.currDuration.ToString("F2") : "∞");
+                buffUIList[j].detail.text = ProcessString(buff, buff.detail);
                 j += 1;
             }
             else
-                buffTextList[j].text = "";
+            {
+                buffUIList[j].shortDetail.text = "";
+                buffUIList[j].detail.text = "";
+            }
+                
         }
+    }
+
+    public string ProcessString(Buff buff, string str)
+    {
+        string res;
+        res = str.Replace("dur", buff.duration.ToString());
+        return res;
     }
 }

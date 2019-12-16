@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   buffName: "\u529B\u91CF"
-  detail: "\u529B\u91CF + 1"
+  detail: "\u9020\u6210\u4F24\u5BB3+1"
   duration: -1
   currDuration: 0
   owner: {fileID: 0}
+  gainDirectionSkill: {fileID: 0}
   strength: 1
   speedPercentage: 0
   shield: 0

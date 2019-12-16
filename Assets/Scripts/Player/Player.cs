@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
-
+    [HideInInspector]
+    public UIIndicator indicator;
+    [HideInInspector]
     public Thing thing;
     
     CircleCollider2D col;
@@ -33,10 +35,12 @@ public class Player : MonoBehaviour
     {
         if (Instance == null) { Instance = this; }
         else { Destroy(gameObject); }
+        indicator = GetComponent<UIIndicator>();
     }
 
     void Start()
     {
+        
         col = GetComponent<CircleCollider2D>();
         body = GetComponent<Rigidbody2D>();
         Times.Instance.EnterBulletTime();

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   buffName: "\u7729\u6655"
-  detail: This is a buff
+  detail: "\u65E0\u6CD5\u79FB\u52A8\uFF0C\u65BD\u6CD5"
   duration: 1.25
   currDuration: 0
   owner: {fileID: 0}

@@ -5,10 +5,21 @@ using UnityEngine.UI;
 
 public class UIBuff : MonoBehaviour
 {
-    public Text text;
+    public Text shortDetail;
+    public Text detail;
 
-    private void Update()
+    private void Start()
     {
+        detail.enabled = false;
+    }
 
+    public void OnMouseOver()
+    {
+        detail.enabled = true;
+    }
+
+    public void OnMouseExit()
+    {
+        detail.enabled = false;
     }
 }

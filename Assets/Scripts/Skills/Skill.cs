@@ -15,6 +15,7 @@ public abstract class Skill : ScriptableObject
     public Sprite sprite;
     //public int cost;
     public float range;
+    public float radius;
     public int damage;
     public Buff gainBuff;
     public float preCastTime;
