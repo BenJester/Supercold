@@ -166,7 +166,7 @@ public class Thing : MonoBehaviour
 
     void GoToTargetPos()
     {
-        if (body.position == targetPos || !canMove) return;
+        if (body.position == targetPos || !canMove || dead) return;
 
         //buffer = new Queue<Action>();
         Vector2 dir = (targetPos - body.position).normalized;

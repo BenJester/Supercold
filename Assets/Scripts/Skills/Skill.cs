@@ -70,7 +70,7 @@ public abstract class Skill : ScriptableObject
         yield return new WaitForSeconds(preCastTime);
         
         owner.particle.PauseCastParticle();
-        if (!owner.CheckStackableBool<StunnedBuff>())
+        if (!owner.CheckStackableBool<StunnedBuff>() && !owner.dead)
         {
             Do();
             if (isCard())
