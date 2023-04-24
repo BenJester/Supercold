@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9d5e675f1014340ae2271a85f002fc, type: 3}
+  m_Name: Break
+  m_EditorClassIdentifier: 
+  active: 1
+  buffName: "\u7834\u9632"
+  detail: "\u65E0\u6CD5\u79FB\u52A8\uFF0C\u65BD\u6CD5"
+  duration: 8
+  endBuff: {fileID: 11400000, guid: 776314e75365c3746afaf46c9b8b3119, type: 2}
+  currDuration: -1
+  owner: {fileID: 0}
+  gainDirectionSkill: {fileID: 0}

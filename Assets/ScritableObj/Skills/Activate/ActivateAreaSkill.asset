@@ -17,10 +17,11 @@ MonoBehaviour:
   detail: "\u5BF9\u5468\u56F4\u654C\u4EBA\u9020\u6210 dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   range: 0
+  radius: 125
   damage: 1
+  weaknessList: 06000000
   gainBuff: {fileID: 0}
   preCastTime: 0
   postCastTime: 0.1
   owner: {fileID: 0}
-  radius: 125
   delay: 0.1

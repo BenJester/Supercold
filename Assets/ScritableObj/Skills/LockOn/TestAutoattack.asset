@@ -17,16 +17,17 @@ MonoBehaviour:
   detail: "\u5411\u76EE\u6807\u53D1\u5C04\u4E00\u679A\u5B50\u5F39\uFF0C\u9020\u6210
     dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
-  cost: 0
+  cooldown: 5
   range: 0
+  radius: 0
   damage: 1
+  weaknessList: 04000000
+  gainBuff: {fileID: 0}
   preCastTime: 0.2
   postCastTime: 0.05
-  active: 1
   owner: {fileID: 0}
   target: {fileID: 0}
   travelSpeed: 500
   bulletSprite: {fileID: 0}
   num: 1
   interval: 1
-  gainBuff: {fileID: 0}

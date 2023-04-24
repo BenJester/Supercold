@@ -38,6 +38,7 @@ public class BulletSkill : LockOnSkill
         bulletBehavior.damage = damage;
         bulletBehavior.target = target;
         bulletBehavior.owner = owner;
+        bulletBehavior.weaknessList = weaknessList;
         if (gainBuff != null)
             bulletBehavior.gainBuff = gainBuff;
     }

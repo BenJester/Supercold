@@ -45,7 +45,7 @@ public class DirectionDashSkill : DirectionSkill
             Thing thing = col.GetComponent<Thing>();
             if (thing != null && thing.team != owner.team && !hitList.Contains(thing))
             {
-                thing.TakeDamage(damage, owner);
+                thing.TakeDamage(weaknessList, damage, owner);
                 if (gainBuff != null)
                     thing.AddBuff(Instantiate(gainBuff));
                 hitList.Add(thing);

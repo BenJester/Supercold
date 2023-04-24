@@ -14,13 +14,13 @@ public class TargetPosCountdown : MonoBehaviour
 
     private void Update()
     {
-        if (Player.Instance.thing.targetPos != null)
-        {
-            transform.position = Player.Instance.thing.targetPos;
-            float countdownVal = (Vector3.Distance(Player.Instance.transform.position, Player.Instance.thing.targetPos)
-                         / Player.Instance.thing.speed);
-            countdown.text = countdownVal < 0.03f ? "" : countdownVal.ToString("F2");
-        }
+        //if (Player.Instance.thing.targetPos != null)
+        //{
+        //    transform.position = Player.Instance.thing.targetPos;
+        //    float countdownVal = (Vector3.Distance(Player.Instance.transform.position, Player.Instance.thing.targetPos)
+        //                 / Player.Instance.thing.speed);
+        //    countdown.text = countdownVal < 0.03f ? "" : countdownVal.ToString("F2");
+        //}
 
         
 

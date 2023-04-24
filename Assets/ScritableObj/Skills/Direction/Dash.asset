@@ -18,7 +18,9 @@ MonoBehaviour:
     dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   range: 320
+  radius: 0
   damage: 1
+  weaknessList: 08000000
   gainBuff: {fileID: 0}
   preCastTime: 0.02
   postCastTime: 0.08

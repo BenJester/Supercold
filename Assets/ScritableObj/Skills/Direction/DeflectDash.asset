@@ -18,7 +18,9 @@ MonoBehaviour:
     1 \u5F20\u724C"
   sprite: {fileID: 0}
   range: 240
+  radius: 0
   damage: 0
+  weaknessList: 06000000
   gainBuff: {fileID: 11400000, guid: 35c17fb544b5c0745b126c218f610d63, type: 2}
   preCastTime: 0
   postCastTime: 0.08

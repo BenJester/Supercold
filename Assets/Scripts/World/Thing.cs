@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+
 public class Thing : MonoBehaviour
 {
     public bool active;
@@ -11,6 +14,17 @@ public class Thing : MonoBehaviour
     public int maxHp;
     public int hp;
     public int shield;
+    //max弱点次数
+    public int maxWeakPoint;
+    //弱点次数
+    public int weakPoint;
+    //弱点列表
+    public List<WeaknessType> weaknessTypeList;
+    //破防时长
+    public float breakDur;
+    //已破防
+    public bool broken;
+
     public bool invinsible;
 
     public float rawSpeed;
@@ -48,6 +62,7 @@ public class Thing : MonoBehaviour
     void Start()
     {
         hp = maxHp;
+        weakPoint = maxWeakPoint;
         col = GetComponent<CircleCollider2D>();
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -87,17 +102,17 @@ public class Thing : MonoBehaviour
         speed = rawSpeed * Mathf.Clamp(speedMultiplier, 0f, 15f);
         if (lr != null)
         {
-            lr.SetPosition(0, transform.position);
-            lr.SetPosition(1, targetPos);
+            //lr.SetPosition(0, transform.position);
+            //lr.SetPosition(1, targetPos);
         }
     }
 
     void HandleBuff()
     {
-        foreach (var buff in buffList)
+        for (int i = 0; i < buffList.Count; i++)
         {
-            buff.Tick();
-            int num = buff.UINum();
+            buffList[i].Tick();
+            int num = buffList[i].UINum();
             if (num != -1)
             {
                 //buffUI.text.text = num.ToString();
@@ -118,11 +133,35 @@ public class Thing : MonoBehaviour
         GoToTargetPos();
     }
 
-    public void TakeDamage(int damage, Thing owner)
+    public void TakeDamage(List<WeaknessType> weaknessList, int damage, Thing owner)
     {
         if (dead) return;
         OnGetHit?.Invoke(owner);
         if (damage == 0 || CheckStackableBool<InvinsibleBuff>()) return;
+
+        // 处理弱点
+        if (team != 0)
+        {
+            foreach (WeaknessType weakness in weaknessList)
+            {
+                foreach (WeaknessType myWeakness in weaknessTypeList)
+                {
+                    if (weakness == WeaknessType.ForceWeakness || weakness == myWeakness)
+                    {
+                        if (!broken && weakPoint > 0)
+                        {
+                            weakPoint -= 1;
+                        }
+                        if (weakPoint == 0 && !broken)
+                        {
+                            Break();
+                        }
+                    }
+                }
+            }
+        }
+        
+
         damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
         // if tmpShieldQueue
         if (shield > 0)
@@ -138,6 +177,19 @@ public class Thing : MonoBehaviour
         if (hp <= 0)
             Die();
     }
+
+    private void Break()
+    {
+        AddBuff(Utility.Instance.breakBuff);
+        broken = true;
+    }
+
+    public void RestoreWeakpoint()
+    {
+        broken = false;
+        weakPoint = maxWeakPoint;
+    }
+
 
     public bool CheckStackableBool<T>()
     {
@@ -166,7 +218,7 @@ public class Thing : MonoBehaviour
 
     void GoToTargetPos()
     {
-        if (body.position == targetPos || !canMove || dead) return;
+        if (body.position == targetPos || !canMove || dead || team == 0) return;
 
         //buffer = new Queue<Action>();
         Vector2 dir = (targetPos - body.position).normalized;

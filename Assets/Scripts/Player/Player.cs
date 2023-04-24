@@ -11,10 +11,18 @@ public class Player : MonoBehaviour
     public UIIndicator indicator;
     [HideInInspector]
     public Thing thing;
-    
+    //现在控制的角色
+    public Actor currActor;
     CircleCollider2D col;
     Rigidbody2D body;
 
+    public Vector2 dir;
+    public Skill QSkill;
+    public float QSkillCooldown;
+    public Skill ESkill;
+    public float ESkillCooldown;
+    //UI显示用
+    public float curMaxCooldown;
     public int handMaxNum = 6;
     public List<Skill> Deck;
     public List<Skill> Discard;
@@ -43,12 +51,13 @@ public class Player : MonoBehaviour
         
         col = GetComponent<CircleCollider2D>();
         body = GetComponent<Rigidbody2D>();
-        Times.Instance.EnterBulletTime();
+        //Times.Instance.EnterBulletTime();
         thing = GetComponent<Thing>();
-        
-        Discard = new List<Skill>();
-        Utility.Instance.InitDeck(ref Deck, thing);
-        InitHand();
+        InitQESkill();
+
+        //Discard = new List<Skill>();
+        //Utility.Instance.InitDeck(ref Deck, thing);
+        //InitHand();
     }
 
     void Update()
@@ -57,12 +66,42 @@ public class Player : MonoBehaviour
         HandleTime();
         HandleSkillInput();
         HandleUI();
+        HandleCooldown();
+    }
 
+    public void SetCooldown(float cd)
+    {
+        QSkillCooldown = cd;
+        ESkillCooldown = cd;
+    }
+
+    void HandleCooldown()
+    {
+        if (QSkillCooldown > 0f)
+        {
+            QSkillCooldown -= Time.deltaTime;
+        }
+        if (QSkillCooldown < 0f)
+            QSkillCooldown = 0f;
+
+        if (ESkillCooldown > 0f)
+        {
+            ESkillCooldown -= Time.deltaTime;
+        }
+        if (ESkillCooldown < 0f)
+            ESkillCooldown = 0f;
     }
 
     void HandleUI()
     {
 
+    }
+
+    void InitQESkill()
+    {
+        QSkill.owner = thing;
+        ESkill.owner = thing;
+        SetCooldown(0f);
     }
 
     void SetHandToEmpty()
@@ -89,17 +128,20 @@ public class Player : MonoBehaviour
 
     void HandleTime()
     {
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Times.Instance.EnterBulletTime();
+            if (Times.Instance.targetTimeScale != Times.Instance.bulletTimeScale)
+                Times.Instance.EnterBulletTime();
+            else
+                Times.Instance.ExitBulletTime();
         }
 
-        if (!Input.GetMouseButton(1))
-        {
-            Times.Instance.EnterBulletTime();
-        }
-        else
-            Times.Instance.ExitBulletTime();
+        //if (!Input.GetMouseButton(1))
+        //{
+        //    Times.Instance.EnterBulletTime();
+        //}
+        //else
+        //    Times.Instance.ExitBulletTime();
     }
 
     void FixedUpdate()
@@ -109,34 +151,34 @@ public class Player : MonoBehaviour
 
     void HandleSkillInput()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && QSkillCooldown == 0f)
         {
-            Hand[0].OnKey();
+            QSkill.OnKey();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    Hand[1].OnKey();
+        //}
+        if (Input.GetKeyDown(KeyCode.E) && ESkillCooldown == 0f)
         {
-            Hand[1].OnKey();
+            ESkill.OnKey();
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Hand[2].OnKey();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Hand[3].OnKey();
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Hand[4].OnKey();
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Hand[5].OnKey();
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Reload.OnKey();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Hand[3].OnKey();
+        //}
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    Hand[4].OnKey();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    Hand[5].OnKey();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    Reload.OnKey();
+        //}
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
@@ -155,8 +197,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            thing.targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //thing.targetPos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
+
+        dir = new Vector2((Input.GetKey(KeyCode.A) ? -1f : 0f) + (Input.GetKey(KeyCode.D) ?  1f : 0f),
+                          (Input.GetKey(KeyCode.W) ?  1f : 0f) + (Input.GetKey(KeyCode.S) ? -1f : 0f));
+        Move();
+
+    }
+
+    private void Move()
+    {
+        if (!thing.canMove || thing.dead) return;
+        body.MovePosition(body.position + dir.normalized * thing.speed * Time.fixedDeltaTime);
     }
 
     int HandCount()

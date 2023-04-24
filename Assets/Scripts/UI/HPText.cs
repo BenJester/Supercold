@@ -19,6 +19,7 @@ public class HPText : MonoBehaviour
     public Text debuffTimeText;
 
     public Image lossHPbar;
+    public List<Image> weaknessImgList;
 
     public float lossHPAnimDelay;
     public float lossHPAnimDuration;
@@ -40,6 +41,19 @@ public class HPText : MonoBehaviour
         HideCastTimeBar();
         HideDebuffTimeBar();
         thing.OnLoseHP += UpdateLostHPUI;
+        InitWeakness();
+    }
+
+    private void InitWeakness()
+    {
+        if (thing.weaknessTypeList.Count > 0)
+        {
+            for (int i = 0; i < thing.weaknessTypeList.Count; i++)
+            {
+                weaknessImgList[i].color = Color.white;
+                weaknessImgList[i].sprite = Utility.Instance.GetWeaknessSprite(thing.weaknessTypeList[i]);
+            }
+        }
     }
 
     void UpdateLostHPUI(int lossHP)
@@ -85,24 +99,27 @@ public class HPText : MonoBehaviour
     private void Update()
     {
         hpText.text = thing.hp + " / " + thing.maxHp;
-        shieldText.text = thing.shield.ToString();
+        if (thing.team != 0)
+            shieldText.text = thing.weakPoint.ToString();
+        else
+            shieldText.text = thing.shield.ToString();
         hpBar.fillAmount =  (float) thing.hp / thing.maxHp;
 
         if (showCastTime)
         {
             castTimeBar.fillAmount = currCastTime / totalCastTime;
             castTimeText.text = (totalCastTime - currCastTime).ToString("F2");
-            currCastTime += Time.fixedDeltaTime;
+            currCastTime += Time.deltaTime;
             if (currCastTime >= totalCastTime)
                 HideCastTimeBar();
         }
 
         if (showDebuffTime)
         {
-            debuffTimerBar.fillAmount = currDebuffTime / totalDebuffTime;
-            debuffTimeText.text = currBuff.buffName + " " + (totalDebuffTime - currDebuffTime).ToString("F2");
-            currDebuffTime += Time.fixedDeltaTime;
-            if (currDebuffTime >= totalDebuffTime)
+            debuffTimerBar.fillAmount = currBuff.currDuration / currBuff.duration;
+            debuffTimeText.text = currBuff.buffName + " " + (currBuff.currDuration).ToString("F2");
+            //currDebuffTime += Time.fixedDeltaTime;
+            if (!currBuff.active)
                 HideCastTimeBar();
         }
 

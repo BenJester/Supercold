@@ -9,6 +9,7 @@ public abstract class Buff : ScriptableObject
     public string buffName = "New Buff";
     public string detail = "This is a buff";
     public float duration = -1f;
+    public Buff endBuff;
     [HideInInspector]
     public float currDuration;
     [HideInInspector]
@@ -36,6 +37,10 @@ public abstract class Buff : ScriptableObject
 
     public virtual void End()
     {
+        if (endBuff != null)
+        {
+            owner.AddBuff(endBuff);
+        }
     }
     public virtual int UINum()
     {
@@ -54,7 +59,7 @@ public abstract class Buff : ScriptableObject
             Deactivate();
         }
         else
-            currDuration -= Time.fixedDeltaTime;
+            currDuration -= Time.deltaTime;
 
     }
 }

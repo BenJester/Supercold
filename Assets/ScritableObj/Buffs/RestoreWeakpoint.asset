@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8cfe6d3db7f484da43d83cfd10c629, type: 3}
+  m_Name: RestoreWeakpoint
+  m_EditorClassIdentifier: 
+  active: 1
+  buffName: "\u6062\u590D\u5F31\u70B9"
+  detail: "\u6062\u590D\u5F31\u70B9"
+  duration: -1
+  endBuff: {fileID: 0}
+  currDuration: 0
+  owner: {fileID: 0}
+  gainDirectionSkill: {fileID: 0}

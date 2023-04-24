@@ -14,6 +14,7 @@ public class StunnedBuff : Buff
 
     public override void End()
     {
+        base.End();
         foreach (var buff in owner.buffList)
         {
             if (buff.GetType() == typeof(StunnedBuff) && buff.currDuration > 0f)
@@ -22,5 +23,6 @@ public class StunnedBuff : Buff
         owner.HPCanvas.HideDebuffTimeBar();
         owner.canCast = true;
         owner.canMove = true;
+
     }
 }

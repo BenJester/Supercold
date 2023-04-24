@@ -15,6 +15,7 @@ public class ActivateAreaSkill : ActivateSkill
         areaBehavior.owner = owner;
         areaBehavior.delay = delay;
         areaBehavior.buff = gainBuff;
+        areaBehavior.weaknessList = weaknessList;
         areaBehavior.Init();
     }
 }

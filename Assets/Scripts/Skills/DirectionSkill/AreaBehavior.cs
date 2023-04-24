@@ -11,6 +11,7 @@ public class AreaBehavior : MonoBehaviour
     [HideInInspector] public float delay;
     [HideInInspector] public float radius;
     [HideInInspector] public int damage;
+    [HideInInspector] public List<WeaknessType> weaknessList;
     [HideInInspector] public Buff buff;
     float timer;
     public Text countdownText;
@@ -48,7 +49,7 @@ public class AreaBehavior : MonoBehaviour
             Thing thing = col.GetComponent<Thing>();
             if (thing != null && thing.team != owner.team)
             {
-                thing.TakeDamage(damage, owner);
+                thing.TakeDamage(weaknessList, damage, owner);
                 if (buff != null)
                     thing.AddBuff(Instantiate(buff));
             }

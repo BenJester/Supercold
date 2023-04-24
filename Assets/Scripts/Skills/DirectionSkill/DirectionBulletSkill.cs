@@ -23,5 +23,6 @@ public class DirectionBulletSkill : DirectionSkill
         bulletBehavior.damage = damage;
         bulletBehavior.dir = pos;
         bulletBehavior.owner = owner;
+        bulletBehavior.weaknessList = weaknessList;
     }
 }

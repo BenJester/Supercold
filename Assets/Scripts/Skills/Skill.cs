@@ -14,9 +14,11 @@ public abstract class Skill : ScriptableObject
     public string detail = "This is a card";
     public Sprite sprite;
     //public int cost;
+    public float cooldown;
     public float range;
     public float radius;
     public int damage;
+    public List<WeaknessType> weaknessList;
     public Buff gainBuff;
     public float preCastTime;
     public float postCastTime;
@@ -35,7 +37,7 @@ public abstract class Skill : ScriptableObject
     public void Cast()
     {
         action = CreateAction();
-        OnCastFinish();
+        //OnCastFinish();
         if (action.skill.GetType() == typeof(Reload) && HasReloadInBuffer()) return;
         if (!owner.canCast)
         {
@@ -62,7 +64,11 @@ public abstract class Skill : ScriptableObject
 
         if (preCastTime > 0f)
             owner.particle.PlayCastParticle();
-        
+        if (cooldown > 0f && owner.team == 0)
+        {
+            Player.Instance.SetCooldown(cooldown);
+            Player.Instance.curMaxCooldown = cooldown;
+        }
         owner.HPCanvas.ShowCastTimeBar(preCastTime + postCastTime);
 
         owner.canMove = false;

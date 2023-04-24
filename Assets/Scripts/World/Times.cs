@@ -10,9 +10,9 @@ public class Times : MonoBehaviour
     public float castTimeScale = 0.5f;
     public float timeScaleEnterLerpRate = 0.07f;
     public float timeScaleExitLerpRate = 0.02f;
-    
 
-    float targetTimeScale;
+
+    public float targetTimeScale;
     float targetDeltaTime;
 
     public float startDeltaTime;
@@ -30,8 +30,8 @@ public class Times : MonoBehaviour
 
     void Update()
     {
-        if (!Player.Instance.thing.canCast && !Player.Instance.thing.canMove)
-            SetTimeScale(castTimeScale);
+        //if (!Player.Instance.thing.canCast && !Player.Instance.thing.canMove)
+        //    SetTimeScale(castTimeScale);
         Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.timeScale > targetTimeScale ? timeScaleEnterLerpRate : timeScaleExitLerpRate);
         Time.fixedDeltaTime = Mathf.Lerp(Time.fixedDeltaTime, targetDeltaTime, (Time.timeScale > targetTimeScale ? timeScaleEnterLerpRate : timeScaleExitLerpRate));
     }
