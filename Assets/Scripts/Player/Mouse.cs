@@ -25,7 +25,7 @@ public class Mouse : MonoBehaviour
 
     private void Start()
     {
-        indicator = Player.Instance.indicator;
+        indicator = Player.Instance.currActor.indicator;
     }
 
     public void LockOnMouse(LockOnSkill skill)

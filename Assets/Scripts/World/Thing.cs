@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Thing : MonoBehaviour
 {
+    public Actor actor;
     public bool active;
     public bool dead;
     public int team;

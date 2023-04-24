@@ -41,12 +41,12 @@ public class EnemyAI : MonoBehaviour
         }
         else if (skill.GetType().IsSubclassOf(typeof(LockOnSkill)))
         {
-            Action action = new Action(thing, (LockOnSkill) skill, Player.Instance.gameObject);
+            Action action = new Action(thing, (LockOnSkill) skill, Player.Instance.currActor.gameObject);
             action.CastTimeDo();
         }
         else if (skill.GetType().IsSubclassOf(typeof(DirectionSkill)))
         {
-            Action action = new Action(thing, (DirectionSkill) skill, PredictPosition(Player.Instance.thing, skill));
+            Action action = new Action(thing, (DirectionSkill) skill, PredictPosition(Player.Instance.currActor.thing, skill));
             action.CastTimeDo();
         }
         ready = true;
@@ -61,15 +61,15 @@ public class EnemyAI : MonoBehaviour
 
     IEnumerator Attack()
     {
-        while (!thing.dead && !Player.Instance.thing.dead && skillList.Count > 0)
+        while (!thing.dead && !Player.Instance.currActor.thing.dead && skillList.Count > 0)
         {
             currIndex = 0;
             foreach (Skill skill in skillList)
             {
                 if (thing.dead) break;
-                while (skill.range != 0 && Vector3.Distance(transform.position, Player.Instance.transform.position) > skill.range)
+                while (skill.range != 0 && Vector3.Distance(transform.position, Player.Instance.currActor.transform.position) > skill.range)
                 {
-                    thing.targetPos = Player.Instance.transform.position;
+                    thing.targetPos = Player.Instance.currActor.transform.position;
                     yield return new WaitForEndOfFrame();
                 }
                 DoSkill(skill);

@@ -11,18 +11,19 @@ public class Player : MonoBehaviour
     public UIIndicator indicator;
     [HideInInspector]
     public Thing thing;
+    public List<Actor> actors;
     //现在控制的角色
     public Actor currActor;
     CircleCollider2D col;
     Rigidbody2D body;
 
     public Vector2 dir;
-    public Skill QSkill;
-    public float QSkillCooldown;
-    public Skill ESkill;
-    public float ESkillCooldown;
-    //UI显示用
-    public float curMaxCooldown;
+    //public Skill QSkill;
+    //public float QSkillCooldown;
+    //public Skill ESkill;
+    //public float ESkillCooldown;
+    ////UI显示用
+    //public float curMaxCooldown;
     public int handMaxNum = 6;
     public List<Skill> Deck;
     public List<Skill> Discard;
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         //Times.Instance.EnterBulletTime();
         thing = GetComponent<Thing>();
-        InitQESkill();
+        //InitQESkill();
 
         //Discard = new List<Skill>();
         //Utility.Instance.InitDeck(ref Deck, thing);
@@ -66,43 +67,43 @@ public class Player : MonoBehaviour
         HandleTime();
         HandleSkillInput();
         HandleUI();
-        HandleCooldown();
+        //HandleCooldown();
     }
 
-    public void SetCooldown(float cd)
-    {
-        QSkillCooldown = cd;
-        ESkillCooldown = cd;
-    }
+    //public void SetCooldown(float cd)
+    //{
+    //    QSkillCooldown = cd;
+    //    ESkillCooldown = cd;
+    //}
 
-    void HandleCooldown()
-    {
-        if (QSkillCooldown > 0f)
-        {
-            QSkillCooldown -= Time.deltaTime;
-        }
-        if (QSkillCooldown < 0f)
-            QSkillCooldown = 0f;
+    //void HandleCooldown()
+    //{
+    //    if (QSkillCooldown > 0f)
+    //    {
+    //        QSkillCooldown -= Time.deltaTime;
+    //    }
+    //    if (QSkillCooldown < 0f)
+    //        QSkillCooldown = 0f;
 
-        if (ESkillCooldown > 0f)
-        {
-            ESkillCooldown -= Time.deltaTime;
-        }
-        if (ESkillCooldown < 0f)
-            ESkillCooldown = 0f;
-    }
+    //    if (ESkillCooldown > 0f)
+    //    {
+    //        ESkillCooldown -= Time.deltaTime;
+    //    }
+    //    if (ESkillCooldown < 0f)
+    //        ESkillCooldown = 0f;
+    //}
 
     void HandleUI()
     {
 
     }
 
-    void InitQESkill()
-    {
-        QSkill.owner = thing;
-        ESkill.owner = thing;
-        SetCooldown(0f);
-    }
+    //void InitQESkill()
+    //{
+    //    QSkill.owner = thing;
+    //    ESkill.owner = thing;
+    //    SetCooldown(0f);
+    //}
 
     void SetHandToEmpty()
     {
@@ -151,17 +152,29 @@ public class Player : MonoBehaviour
 
     void HandleSkillInput()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && QSkillCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.Q) && currActor.QSkillCooldown == 0f)
         {
-            QSkill.OnKey();
+            currActor.QSkill.OnKey();
         }
         //if (Input.GetKeyDown(KeyCode.W))
         //{
         //    Hand[1].OnKey();
         //}
-        if (Input.GetKeyDown(KeyCode.E) && ESkillCooldown == 0f)
+        if (Input.GetKeyDown(KeyCode.E) && currActor.ESkillCooldown == 0f)
         {
-            ESkill.OnKey();
+            currActor.ESkill.OnKey();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchActor(actors[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchActor(actors[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchActor(actors[2]);
         }
         //if (Input.GetKeyDown(KeyCode.R))
         //{
@@ -202,15 +215,27 @@ public class Player : MonoBehaviour
 
         dir = new Vector2((Input.GetKey(KeyCode.A) ? -1f : 0f) + (Input.GetKey(KeyCode.D) ?  1f : 0f),
                           (Input.GetKey(KeyCode.W) ?  1f : 0f) + (Input.GetKey(KeyCode.S) ? -1f : 0f));
-        Move();
+        currActor.Move(dir);
 
     }
 
-    private void Move()
+    void SwitchActor(Actor actor)
     {
-        if (!thing.canMove || thing.dead) return;
-        body.MovePosition(body.position + dir.normalized * thing.speed * Time.fixedDeltaTime);
+        if (actor == currActor)
+            return;
+        Vector3 tmp = currActor.transform.position;
+        currActor.transform.position = actor.transform.position;
+        actor.transform.position = tmp;
+
+        currActor = actor;
+        
     }
+
+    //private void Move()
+    //{
+    //    if (!thing.canMove || thing.dead) return;
+    //    body.MovePosition(body.position + dir.normalized * thing.speed * Time.fixedDeltaTime);
+    //}
 
     int HandCount()
     {

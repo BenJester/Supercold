@@ -23,7 +23,7 @@ public class UIBuffPanel : MonoBehaviour
 
     void Update()
     {
-        thing = Player.Instance.thing;
+        thing = Player.Instance.currActor.thing;
         int j = 0;
         for (int i = 0; i < thing.buffList.Count; i++)
         {

@@ -17,6 +17,7 @@ MonoBehaviour:
   detail: "\u51B2\u523A\uFF0C\u5F39\u53CD\u8DEF\u5F84\u4E0A\u5B50\u5F39\u3002\u6210\u529F\u5F39\u53CD\u65F6\u62BD
     1 \u5F20\u724C"
   sprite: {fileID: 0}
+  cooldown: 12
   range: 240
   radius: 0
   damage: 0

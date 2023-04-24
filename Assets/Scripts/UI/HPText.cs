@@ -102,7 +102,7 @@ public class HPText : MonoBehaviour
         if (thing.team != 0)
             shieldText.text = thing.weakPoint.ToString();
         else
-            shieldText.text = thing.shield.ToString();
+            shieldText.text = thing.actor.QSkillCooldown.ToString("F0");
         hpBar.fillAmount =  (float) thing.hp / thing.maxHp;
 
         if (showCastTime)

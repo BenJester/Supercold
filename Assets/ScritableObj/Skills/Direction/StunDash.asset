@@ -17,6 +17,7 @@ MonoBehaviour:
   detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210 1.25
     \u79D2\u7729\u6655"
   sprite: {fileID: 0}
+  cooldown: 5
   range: 184
   radius: 0
   damage: 0

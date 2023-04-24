@@ -66,8 +66,8 @@ public abstract class Skill : ScriptableObject
             owner.particle.PlayCastParticle();
         if (cooldown > 0f && owner.team == 0)
         {
-            Player.Instance.SetCooldown(cooldown);
-            Player.Instance.curMaxCooldown = cooldown;
+            Player.Instance.currActor.SetCooldown(cooldown);
+            Player.Instance.currActor.curMaxCooldown = cooldown;
         }
         owner.HPCanvas.ShowCastTimeBar(preCastTime + postCastTime);
 

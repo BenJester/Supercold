@@ -10,10 +10,10 @@ public class UIHand : MonoBehaviour
 
     private void Update()
     {
-        skillList[0].DisplaySkill(Player.Instance.QSkill);
-        skillList[0].DisplayCooldown(Player.Instance.QSkillCooldown, Player.Instance.curMaxCooldown);
-        skillList[1].DisplaySkill(Player.Instance.ESkill);
-        skillList[1].DisplayCooldown(Player.Instance.ESkillCooldown, Player.Instance.curMaxCooldown);
+        skillList[0].DisplaySkill(Player.Instance.currActor.QSkill);
+        skillList[0].DisplayCooldown(Player.Instance.currActor.QSkillCooldown, Player.Instance.currActor.curMaxCooldown);
+        skillList[1].DisplaySkill(Player.Instance.currActor.ESkill);
+        skillList[1].DisplayCooldown(Player.Instance.currActor.ESkillCooldown, Player.Instance.currActor.curMaxCooldown);
 
         for (int i = 0; i < skillList.Count; i ++)
         {
