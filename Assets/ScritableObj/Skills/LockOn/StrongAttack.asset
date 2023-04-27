@@ -20,11 +20,11 @@ MonoBehaviour:
   cooldown: 9
   range: 0
   radius: 0
-  damage: 1
+  damage: 3
   weaknessList: 03000000
   gainBuff: {fileID: 0}
-  preCastTime: 0.8
-  postCastTime: 0.2
+  preCastTime: 0.1
+  postCastTime: 0.1
   owner: {fileID: 0}
   target: {fileID: 0}
   travelSpeed: 1000

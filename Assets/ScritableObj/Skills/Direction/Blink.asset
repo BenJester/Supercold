@@ -16,7 +16,7 @@ MonoBehaviour:
   skillName: "\u95EA\u70C1"
   detail: "\u77AC\u79FB\u81F3\u76EE\u6807\u4F4D\u7F6E"
   sprite: {fileID: 0}
-  cooldown: 8
+  cooldown: 3
   range: 0
   radius: 0
   damage: 0
@@ -25,5 +25,5 @@ MonoBehaviour:
   preCastTime: 0.05
   postCastTime: 0.05
   owner: {fileID: 0}
-  targetPos: {x: -544.7185, y: 92.88096}
+  targetPos: {x: -637.58765, y: -622.1708}
   useReletivePos: 0

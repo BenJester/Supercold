@@ -16,12 +16,14 @@ MonoBehaviour:
   skillName: "\u89C1\u5207"
   detail: "\u5411\u76EE\u6807\u5F39\u53CD\u8EAB\u8FB9\u5B50\u5F39"
   sprite: {fileID: 0}
-  cost: 0
+  cooldown: 0
   range: 190
+  radius: 0
   damage: 0
+  weaknessList: 08000000
+  gainBuff: {fileID: 0}
   preCastTime: 0
   postCastTime: 0.15
-  active: 0
   owner: {fileID: 0}
   target: {fileID: 0}
   deflectBulletSpeed: 3000

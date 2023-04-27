@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     CircleCollider2D col;
     Rigidbody2D body;
 
+    public Thing currAITarget;
+
     public Vector2 dir;
     //public Skill QSkill;
     //public float QSkillCooldown;
@@ -176,6 +178,7 @@ public class Player : MonoBehaviour
         {
             SwitchActor(actors[2]);
         }
+
         //if (Input.GetKeyDown(KeyCode.R))
         //{
         //    Hand[3].OnKey();
@@ -223,6 +226,8 @@ public class Player : MonoBehaviour
     {
         if (actor == currActor)
             return;
+        actor.GetComponent<ActorAI>().SwitchToCurrActor();
+        currActor.GetComponent<ActorAI>().SwitchToAIMode();
         Vector3 tmp = currActor.transform.position;
         currActor.transform.position = actor.transform.position;
         actor.transform.position = tmp;

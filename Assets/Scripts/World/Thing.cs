@@ -163,7 +163,7 @@ public class Thing : MonoBehaviour
         }
         
 
-        damage = Mathf.Clamp(damage + owner.strength, 0, 10000);
+        damage = Mathf.Clamp((damage + owner.strength) * (broken ? 2 : 1), 0, 10000);
         // if tmpShieldQueue
         if (shield > 0)
         {
@@ -219,7 +219,7 @@ public class Thing : MonoBehaviour
 
     void GoToTargetPos()
     {
-        if (body.position == targetPos || !canMove || dead || team == 0) return;
+        if (body.position == targetPos || !canMove || dead || Player.Instance.currActor == actor) return;
 
         //buffer = new Queue<Action>();
         Vector2 dir = (targetPos - body.position).normalized;

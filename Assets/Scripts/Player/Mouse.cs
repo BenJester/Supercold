@@ -30,12 +30,14 @@ public class Mouse : MonoBehaviour
 
     public void LockOnMouse(LockOnSkill skill)
     {
+        Times.Instance.EnterBulletTime();
         mode = MouseMode.LockOn;
         lockOnSkill = skill;
     }
 
     public void SelectDirection(DirectionSkill skill)
     {
+        Times.Instance.EnterBulletTime();
         mode = MouseMode.Direction;
         directionSkill = skill;
     }
@@ -85,6 +87,15 @@ public class Mouse : MonoBehaviour
                 directionSkill.Cast();
                 Reset();
             }
+            else
+            {
+                GameObject hit = MouseSelectGameObj();
+                if (hit && hit.GetComponent<Thing>() != null && hit.GetComponent<Thing>().team != 0)
+                {
+                    Player.Instance.currAITarget = hit.GetComponent<Thing>();
+                }
+            }
+            
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -95,7 +106,8 @@ public class Mouse : MonoBehaviour
     private void Reset()
     {
         mode = MouseMode.Normal;
-        indicator.HideCircle();
+        Player.Instance.currActor.indicator.HideCircle();
+        Times.Instance.ExitBulletTime();
     }
 
     void HandleCursorSprite()
@@ -108,11 +120,11 @@ public class Mouse : MonoBehaviour
                 break;
             case MouseMode.LockOn:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
-                indicator.ShowCircle(lockOnSkill);
+                Player.Instance.currActor.indicator.ShowCircle(lockOnSkill);
                 break;
             case MouseMode.Direction:
                 Cursor.SetCursor(lockCursor, Vector2.zero, CursorMode.Auto);
-                indicator.ShowCircle(directionSkill);
+                Player.Instance.currActor.indicator.ShowCircle(directionSkill);
                 break;
             default:
                 break;

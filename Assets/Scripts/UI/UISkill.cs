@@ -17,7 +17,7 @@ public class UISkill : MonoBehaviour
 
     private void Start()
     {
-        indicator = Player.Instance.indicator;
+        indicator = Player.Instance.currActor.indicator;
     }
 
     public void DisplayCooldown(float curCD, float maxCD)
@@ -69,11 +69,11 @@ public class UISkill : MonoBehaviour
 
     public void ShowCircle()
     {
-        indicator.ShowCircle(skill);
+        Player.Instance.currActor.indicator.ShowCircle(skill);
     }
 
     public void HideCircle()
     {
-        indicator.HideCircle();
+        Player.Instance.currActor.indicator.HideCircle();
     }
 }

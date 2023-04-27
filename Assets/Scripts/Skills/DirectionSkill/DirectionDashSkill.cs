@@ -31,7 +31,7 @@ public class DirectionDashSkill : DirectionSkill
             if (scanBullets)
                 ScanBullets();
             yield return new WaitForEndOfFrame();
-            timer += Time.fixedDeltaTime;
+            timer += Time.deltaTime;
         }
         owner.canMove = true;
         owner.targetPos = targetPos;

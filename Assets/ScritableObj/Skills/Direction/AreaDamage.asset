@@ -18,14 +18,14 @@ MonoBehaviour:
   sprite: {fileID: 0}
   cooldown: 7
   range: 0
-  radius: 250
-  damage: 1
-  weaknessList: 06000000
+  radius: 550
+  damage: 4
+  weaknessList: 04000000
   gainBuff: {fileID: 0}
   preCastTime: 0.4
   postCastTime: 0
   owner: {fileID: 0}
-  targetPos: {x: 0, y: 0}
+  targetPos: {x: -404.75412, y: -139.35379}
   useReletivePos: 0
   delay: 0.8
   bulletSprite: {fileID: 0}

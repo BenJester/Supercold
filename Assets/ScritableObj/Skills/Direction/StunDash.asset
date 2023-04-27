@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 3
   skillName: "\u8E0F\u524D\u65A9"
-  detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210 1.25
-    \u79D2\u7729\u6655"
+  detail: "\u7A81\u8FDB\uFF0C\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210\u7729\u6655\u548C
+    dmg \u70B9\u4F24\u5BB3"
   sprite: {fileID: 0}
   cooldown: 5
-  range: 184
+  range: 300
   radius: 0
-  damage: 0
-  weaknessList: 08000000
+  damage: 1
+  weaknessList: 06000000
   gainBuff: {fileID: 11400000, guid: 0594447615f58c84286c810cdc32fc66, type: 2}
-  preCastTime: 0.02
-  postCastTime: 0.08
+  preCastTime: 0
+  postCastTime: 0.5
   owner: {fileID: 0}
-  targetPos: {x: 0, y: 0}
+  targetPos: {x: 295.10992, y: -838.2158}
   useReletivePos: 0
-  dashSpeed: 2300
-  duration: 0.08
+  dashSpeed: 600
+  duration: 0.5
   scanBullets: 0
   deflectBulletSpeed: 0
